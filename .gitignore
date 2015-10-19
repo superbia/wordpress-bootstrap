@@ -1,0 +1,19 @@
+# Application
+public/app/plugins/*
+public/app/upgrade
+public/app/uploads/*
+
+# Data
+data/*
+
+# Codekit
+public/app/themes/*/config.codekit
+
+# Assets
+public/app/themes/*/style.css
+
+# WordPress
+public/wp
+
+# Vendor (e.g. Composer)
+vendor/*
