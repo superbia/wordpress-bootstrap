@@ -1,7 +1,9 @@
 # Application
 public/app/plugins/*
+public/app/plugins/index.php
 public/app/upgrade
 public/app/uploads/*
+!public/app/uploads/index.php
 
 # Data
 data/*
