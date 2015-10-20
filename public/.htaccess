@@ -1,3 +1,31 @@
+# limit indexing of directories
+Options All -Indexes
+
+# protect wpconfig.php
+<files wp-config.php>
+	order allow,deny
+	deny from all
+</files>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	# Redirect non-www urls to www
+	RewriteCond %{HTTP_HOST} ^domain\.com [NC]
+	RewriteRule (.*) http://www.domain.com/$1 [R=301,L]
+	# Block the include-only files.
+	RewriteRule ^wp/wp-admin/includes/ - [F,L]
+	RewriteRule !^wp/wp-includes/ - [S=3]
+	RewriteRule ^wp/wp-includes/[^/]+\.php$ - [F,L]
+	RewriteRule ^wp/wp-includes/js/tinymce/langs/.+\.php - [F,L]
+	RewriteRule ^wp/wp-includes/theme-compat/ - [F,L]
+	# Disable trace and track
+	RewriteCond %{REQUEST_METHOD} ^TRACE
+	RewriteRule .* - [F]
+	# Stop bots probing for user accounts
+	RewriteCond %{QUERY_STRING} ^author=([0-9]){1,}$ [NC]
+	RewriteRule ^(.*)$ $1?author=999999 [L]
+</IfModule>
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
@@ -8,5 +36,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress
