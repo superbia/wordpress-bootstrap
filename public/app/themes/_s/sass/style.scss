@@ -1,0 +1,57 @@
+/*!
+Theme Name: _s
+Author: Dylan Nichols
+Author URI: http://superbia.com.au/
+Description: 
+Version: 1.0.0
+License: This is a custom theme and may not be used without permission.
+Text Domain: _s
+Tags:
+
+This stylesheet is generated from the SASS file at sass/style.scss
+all style changes should be made to that file.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Base
+	## Elements
+	## Typography
+# Layout
+# UI Patterns
+	## Buttons
+	## Icons
+	## Accessibility
+# Modules
+	## Site Title
+	## Main Navigation
+--------------------------------------------------------------*/
+@import "config/variables-master";
+@import "config/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+# UI Patterns
+--------------------------------------------------------------*/
+@import "ui_patterns/ui_patterns";
+
+/*--------------------------------------------------------------
+# Modules
+--------------------------------------------------------------*/
+@import "modules/modules";

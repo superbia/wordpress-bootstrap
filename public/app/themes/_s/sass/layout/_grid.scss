@@ -1,0 +1,38 @@
+.container {
+	width: 100%;
+	position: relative;
+	clear: left;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	
+	@include bp(tablet-portrait) {
+		width: $width-tablet-portrait;
+	}
+	
+	@include bp(tablet-landscape) {
+		width: $width-tablet-landscape;
+	}
+	
+	@include bp(desktop) {
+		width: $width-desktop;
+	}
+}
+
+/* Columns */
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+	clear: both;
+	overflow: hidden;
+}
+
+[class*="col-"] {
+	width: 100%;
+	position: relative;
+	float: left;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
