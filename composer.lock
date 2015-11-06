@@ -4,22 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b1d422168183b57ccae06cdf4b690de",
-    "content-hash": "f4121fa11989dafdb0cad558d9426ce9",
+    "hash": "ee64c380ddb9a5047e5a34520dbd465c",
+    "content-hash": "6c7585fcf6a49e435aad45aa2c8b1628",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.21",
+            "version": "v1.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
+                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "url": "https://api.github.com/repos/composer/installers/zipball/bd9b14f094c89c8b5804a4e41edeb7853bb85046",
+                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046",
                 "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -29,9 +32,9 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
@@ -100,7 +103,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-02-18 17:17:01"
+            "time": "2015-10-29 23:28:48"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -189,15 +192,15 @@
         },
         {
             "name": "superbia/foreman",
-            "version": "v1.0.0",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "/Users/dylan/Sites/bootstrap/_plugins/foreman",
-                "reference": "ca8e1ad4d3e77117e326456f1aa25971f96868f2"
+                "reference": "7af35682208ca5157d8029434e6a7d7fef72f522"
             },
-            "type": "wordpress-plugin",
+            "type": "wordpress-muplugin",
             "description": "Functionality plugin for WordPress",
-            "time": "2015-10-22 06:33:50"
+            "time": "2015-11-06 00:00:14"
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts",
