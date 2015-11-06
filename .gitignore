@@ -15,7 +15,7 @@ data/*
 
 # Codekit
 public/app/themes/*/config.codekit
-public/app/themes/_s/sass/.sass-cache
+public/app/themes/*/sass/.sass-cache
 
 # Assets
 public/app/themes/*/style.css
