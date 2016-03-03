@@ -6,7 +6,7 @@
 		},
 		{
 			"type": "vcs",
-			"url": "git@bitbucket.org:superbiaweb/foreman.git/foreman"
+			"url": "git@bitbucket.org:superbiaweb/foreman.git"
 		}
 	],
 	"require": {
@@ -14,8 +14,8 @@
 		"composer/installers": "~1.0.12",
 		"johnpbloch/wordpress": "4.4.2",
 		"wpackagist-plugin/limit-login-attempts": "1.7.1",
-		"wpackagist-plugin/wordpress-seo": "3.0.7",
-		"superbia/foreman": "1.0.6"
+		"wpackagist-plugin/wordpress-seo": "3.1",
+		"superbia/foreman": "1.0.7"
 	},
 	"extra": {
 		"installer-paths": {
