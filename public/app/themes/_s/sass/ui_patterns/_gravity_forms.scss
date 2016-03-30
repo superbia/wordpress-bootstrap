@@ -1,0 +1,88 @@
+ul.gform_fields {
+	margin: 0 -15px;
+	padding: 0;
+	list-style: none;
+}
+
+.gfield {
+	width: 100%;
+	float: left;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-bottom: 1.25em;
+	text-align: left;
+
+	@include bp(tablet-portrait) {
+		width: 50%;
+
+		&--large {
+			width: 100%;
+		}
+	}
+}
+
+.gfield_label {
+	display: inline-block;
+	padding-bottom: 0.5em;
+
+	.gform--hidden-labels & {
+		@extend .screen-reader-text;
+	}
+}
+
+.gf_placeholder {
+	.input-error & {
+		color: red;
+	}
+}
+
+/* Advanced inputs such as 'Name' and 'Address' */
+.gfield--name {
+	margin: 0;
+
+	@include bp(tablet-portrait) {
+		margin-bottom: 1.25em;
+	}
+}
+
+.ginput_complex {
+	> span {
+		width: 100%;
+		float: left;
+		margin-bottom: 1.25em;
+	}
+
+	.gform--hidden-labels & label {
+		@extend .screen-reader-text;
+	}
+
+	@include bp(tablet-portrait) {
+		margin: 0 -15px;
+
+		> span {
+			width: 50%;
+			padding-right: 15px;
+			padding-left: 15px;
+			margin: 0;
+		}
+	}
+}
+
+// The overall gravity forms error message
+.validation_error {
+	@extend p;
+	margin-bottom: 1.5em;
+	color: red;
+}
+
+// Applied to descriptions and individual error messages
+.gfield_description {
+	display: inline-block;
+	padding-top: 0.5em;
+	@extend p;
+}
+
+// Honeypot
+.gform_validation_container {
+	display: none;
+}
