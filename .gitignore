@@ -1,6 +1,7 @@
 # Application
 public/app/mu-plugins/*
 !public/app/mu-plugins/load.php
+!public/app/mu-plugins/disallow-indexing.php
 public/app/plugins/*
 !public/app/plugins/index.php
 public/app/upgrade
