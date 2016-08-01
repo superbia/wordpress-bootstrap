@@ -1,0 +1,29 @@
+{
+  "name": "wordpress-bootstrap",
+  "version": "1.0.0",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/superbiaweb/wordpress-bootstrap.git"
+  },
+  "author": "Superbia",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/superbiaweb/wordpress-bootstrap#readme",
+  "description": "Wordpress Bootstrap",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}

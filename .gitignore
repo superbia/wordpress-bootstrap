@@ -20,12 +20,14 @@ public/app/themes/*/sass/.sass-cache
 
 # Assets
 public/app/themes/*/style.css
+public/app/themes/*/style.css.map
 
 # WordPress
 public/wp
 
-# Vendor (e.g. Composer)
+# Vendor (e.g. Composer, NPM, etc)
 vendor/*
+public/app/themes/*/node_modules/*
 
 # Debug log
 public/app/debug.log
