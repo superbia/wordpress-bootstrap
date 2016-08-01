@@ -8,7 +8,7 @@ public/app/uploads/*
 !public/app/uploads/index.php
 
 # Config
-config/config.local.php
+config.*.php
 
 # Data
 data/*
@@ -25,3 +25,6 @@ public/wp
 
 # Vendor (e.g. Composer)
 vendor/*
+
+# Debug log
+public/app/debug.log
