@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2c2bc64cd72b539e4e534053d99ef186",
-    "content-hash": "6c664bd08d874f7857d8d20b67f6e55a",
+    "hash": "a2f5e30e8305ac7405db5efe2b73761e",
+    "content-hash": "465faba5f62412cc430ebe59bcd82cea",
     "packages": [
         {
             "name": "composer/installers",
@@ -194,15 +194,15 @@
         },
         {
             "name": "superbia/foreman",
-            "version": "v1.0.8",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:superbiaweb/foreman.git",
-                "reference": "8534fdce26803d51bc9590709f6c2c07c9a38baa"
+                "reference": "892f85c0fcad46e81ec36b7ab6c33dea7a8f6ce4"
             },
             "type": "wordpress-muplugin",
             "description": "Functionality plugin for WordPress",
-            "time": "2016-04-07 11:39:36"
+            "time": "2016-08-01 05:58:27"
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts",

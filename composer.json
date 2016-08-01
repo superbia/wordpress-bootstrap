@@ -15,7 +15,7 @@
 		"johnpbloch/wordpress": "4.5.3",
 		"wpackagist-plugin/limit-login-attempts": "1.7.1",
 		"wpackagist-plugin/wordpress-seo": "3.4",
-		"superbia/foreman": "1.0.8"
+		"superbia/foreman": "1.0.10"
 	},
 	"extra": {
 		"installer-paths": {
