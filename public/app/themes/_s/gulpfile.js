@@ -10,11 +10,11 @@ var gutil = require('gulp-util');
 
 var paths = {
   css: {
-    source: './sass/style.scss',
-    all: './sass/**/*.scss'
+    source: 'sass/style.scss',
+    all: 'sass/**/*.scss'
   },
   js: {
-    source: './js/functions.js'
+    source: 'js/functions.js'
   }
 };
 
