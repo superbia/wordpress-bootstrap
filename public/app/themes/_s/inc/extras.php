@@ -2,33 +2,42 @@
 /**
  * Custom functions that act independently of the theme templates
  *
- * Eventually, some of the functionality here could be replaced by core features
  *
  * @package _s
  */
 
-/**
- * Remove the gallery shortcode from the content
- */
-function _s_remove_gallery_shortcode_from_the_content( $content ) {
-	add_shortcode( 'gallery', '__return_false' );
-	return $content;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_filter( 'the_content', '_s_remove_gallery_shortcode_from_the_content', 0 );
-
 
 /**
- * Move jQuery to the website footer.
+ * Init on frontend.
  */
-function _s_print_jquery_in_footer( &$scripts ) {
-	// Return if the website is being requested via the admin or theme customizer
-	global $wp_customize;
-	if ( is_admin() || isset( $wp_customize ) ) {
-	  return;
+add_action( 'template_redirect', array( '_S_Extras', 'init' ) );
+
+class _S_Extras {
+	/**
+	 * Hook in methods.
+	 */
+	public static function init() {
+		add_filter( 'the_content', array( __CLASS__, 'remove_gallery_shortcode_from_the_content' ), 0 );
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'print_jquery_in_footer' ) );
 	}
 
-	$scripts->add_data( 'jquery', 'group', 1 );
-	$scripts->add_data( 'jquery-core', 'group', 1 );
-	$scripts->add_data( 'jquery-migrate', 'group', 1 );
+	/**
+	 * Remove the gallery shortcode from the content
+	 */
+	public static function remove_gallery_shortcode_from_the_content( $content ) {
+		add_shortcode( 'gallery', '__return_false' );
+		return $content;
+	}
+
+	/**
+	 * Move jQuery to the website footer.
+	 */
+	public static function print_jquery_in_footer() {
+		wp_scripts()->add_data( 'jquery', 'group', 1 );
+		wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+		wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+	}
 }
-add_action( 'wp_default_scripts', '_s_print_jquery_in_footer' );
