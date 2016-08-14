@@ -1,18 +1,18 @@
 # Application
-public/app/mu-plugins/*
+public/app/mu-plugins/
 !public/app/mu-plugins/load.php
 !public/app/mu-plugins/disallow-indexing.php
-public/app/plugins/*
+public/app/plugins/
 !public/app/plugins/index.php
 public/app/upgrade
-public/app/uploads/*
+public/app/uploads/
 !public/app/uploads/index.php
 
 # Config
 config.*.php
 
 # Data
-data/*
+data/
 
 # Codekit
 public/app/themes/*/config.codekit
@@ -26,8 +26,8 @@ public/app/themes/*/style.css.map
 public/wp
 
 # Vendor (e.g. Composer, NPM, etc)
-vendor/*
-public/app/themes/*/node_modules/*
+vendor/
+public/app/themes/*/node_modules/
 
 # Debug log
 public/app/debug.log
