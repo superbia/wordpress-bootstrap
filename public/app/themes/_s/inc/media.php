@@ -1,53 +1,101 @@
 <?php
 /**
- * Media customisations.
+ * Registers custom post types.
  *
- * @package _s
+ * @class     _S_Media_Customisations
+ * @version   1.0.0
+ * @category  Class
+ * @package   _s
  */
 
-/**
- * Oembed: wrap in div for responsive styles
- */
-function _s_wrap_oembeds( $html, $url, $attr, $post_id ) {
-	return '<div class="inline-video">' . $html . '</div>';
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_filter( 'embed_oembed_html', '_s_wrap_oembeds', 10, 4 );
 
+class _S_Media_Customisations {
+	/**
+	 * Hook in methods.
+	 */
+	public static function init() {
+		add_filter( 'embed_oembed_html', array( __CLASS__, 'wrap_oembeds' ), 10, 2 );
+		add_filter( 'oembed_fetch_url', array( __CLASS__, 'vimeo_oembed_params' ), 10, 3 );
+		add_filter( 'oembed_result', array( __CLASS__, 'modify_youtube_oembed_result' ), 10, 2 );
 
-/**
- * Oembed: customise request parameters for Vimeo
- */
-function _s_customise_vimeo_oembed_params( $provider, $url, $args ) {
-	// Check that it is a vimeo URL
-	if ( FALSE !== strpos( $url, 'vimeo.com' ) ) {
-		$args['color'] = 'a0a0a0';
-		$args['byline'] = 0;
-		$args['portrait'] = 0;
-		$args['title'] = 0;
-		$args['badge'] = 0;
-		// WP is adding a whacky height arg
-		unset( $args['height'] );
+		/**
+		 * Setup filter for oembed urls in custom fields
+		 */
+		add_filter( '_s_custom_field_oembed', array( $GLOBALS['wp_embed'], 'autoembed' ), 9 );
+	}
+
+	/**
+	 * Wrap video oembeds in div
+	 *
+	 * @param string $cache	The cached HTML result, stored in post meta.
+	 * @param string $url	The attempted embed URL.
+	 * @return string Modified html response.
+	 */
+	public static function wrap_oembeds( $cache, $url ) {
+		// Array of video services
+		$video_providers = array(
+			'ted.com',
+			'youtube',
+			'vimeo',
+			'vine',
+			'videopress',
+		);
+
+		foreach ( $video_providers as $provider ) {
+			if ( FALSE !== strpos( $url, $provider ) ) {
+				$cache = '<div class="inline-video">' . $cache . '</div>';
+			}
+		}
+
+		return $cache;
 	}
 	
-	// build the query url
-	$parameters = urlencode( http_build_query( $args ) );
-	$provider .= '&' . $parameters;
-	
-	return $provider;
+	/**
+	 * Customise Vimeo oembed request parameters.
+	 * - simplify the player.
+	 *
+	 * @param string $provider	URL of the oEmbed provider.
+	 * @param string $url		URL of the content to be embedded.
+	 * @param array  $args		arguments, usually passed from a shortcode.
+	 * @return string Updated oembed provider/request url.
+	 */
+	public static function vimeo_oembed_params( $provider, $url, $args ) {
+		
+		// Only modify Vimeo provider urls
+		if ( FALSE !== strpos( $url, 'vimeo.com' ) ) {
+			$args['color'] = 'a0a0a0';
+			$args['byline'] = 0;
+			$args['portrait'] = 0;
+			$args['title'] = 0;
+			$args['badge'] = 0;
+			// Unset height for responsive layouts
+			unset( $args['height'] );
+		}
+		
+		// Build the provide request url
+		$parameters = urlencode( http_build_query( $args ) );
+		$provider .= '&' . $parameters;
+		
+		return $provider;
+	}
+
+	/**
+	 * Modify Youtube oembed result.
+	 * - simplify the player.
+	 *
+	 * @param string $data	The returned oEmbed HTML.
+	 * @param string $url	URL of the content to be embedded.
+	 */
+	public static function modify_youtube_oembed_result( $data, $url ) {
+		if ( FALSE !== strpos( $url, 'youtube.com' ) ) {
+			$data = str_replace( '?feature=oembed', '?feature=oembed&showinfo=0&rel=0&autohide=1', $data );
+		}
+
+		return $data;
+	}
 }
-add_filter( 'oembed_fetch_url', '_s_customise_vimeo_oembed_params', 10, 3);
 
-
-/**
- * Oembed: modify Youtube oembed results
- */
-function _s_customise_youtube_oembed_response( $html, $url, $args ) {
-	return str_replace( '?feature=oembed', '?feature=oembed&showinfo=0&rel=0&autohide=1', $html );
-}
-add_filter( 'oembed_result', '_s_customise_youtube_oembed_response', 10, 3 );
-
-
-/**
- * Oembed: Setup oembed filter for video urls in custom fields 
- */
-add_filter( '_s_custom_video_oembed', array( $GLOBALS['wp_embed'], 'autoembed' ), 9);
+_S_Media_Customisations::init();
