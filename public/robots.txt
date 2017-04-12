@@ -6,5 +6,3 @@ Disallow: /wp/wp-admin/
 Disallow: /wp/wp-content/
 Disallow: /wp/wp-includes/
 Disallow: /wp/xmlrpc.php
-Disallow: /app/mu-plugins/
-Disallow: /app/plugins/
