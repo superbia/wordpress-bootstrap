@@ -88,7 +88,7 @@ add_action( 'after_setup_theme', '_s_content_width', 0 );
  */
 function _s_scripts_style() {
 	// Load our main stylesheet.
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), '2017-04-15' );
 
 	// Load Modernizr and respond.js in the head
 	wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/respond.min.js', array(), '1.1.0', false );
