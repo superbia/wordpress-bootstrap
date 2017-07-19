@@ -1,8 +1,0 @@
-User-agent: *
- 
-Disallow: /feed/
-Disallow: /trackback/
-Disallow: /wp/wp-admin/
-Disallow: /wp/wp-content/
-Disallow: /wp/wp-includes/
-Disallow: /wp/xmlrpc.php
