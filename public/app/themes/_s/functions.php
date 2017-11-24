@@ -7,68 +7,40 @@
  * @package _s
  */
 
-if ( ! function_exists( '_s_setup' ) ) :
+namespace _s\Theme;
+
+require_once( __DIR__ . '/inc/extras.php' );
+require_once( __DIR__ . '/inc/media.php' );
+require_once( __DIR__ . '/inc/template-tags.php' );
+require_once( __DIR__ . '/inc/editor.php' );
+
+add_action( 'after_setup_theme',     __NAMESPACE__ . '\\setup' );
+add_action( 'after_setup_theme',     __NAMESPACE__ . '\\content_width', 0 );
+add_action( 'after_switch_theme',    __NAMESPACE__ . '\\theme_activation' );
+add_action( 'admin_init',            __NAMESPACE__ . '\\setup_admin' );
+add_action( 'wp_enqueue_scripts',    __NAMESPACE__ . '\\enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_admin_scripts' );
+
 /**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
+ * Setup the theme
  */
-function _s_setup() {
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style( 'editor-style.css' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
+function setup() {
+	// Let WordPress manage the document title.
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
+	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', '_s' ),
-	) );
+	// Enable support for flexible post formats.
+	add_theme_support( 'post-formats', [ 'aside', 'image', 'video', 'quote', 'link' ] );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
+	add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-	) );
+	// Register navigation menus.
+	register_nav_menu( 'nav-primary', 'Main navigation' );
+	register_nav_menu( 'nav-secondary', 'Secondary navigation' );
 }
-endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
-
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -77,57 +49,39 @@ add_action( 'after_setup_theme', '_s_setup' );
  *
  * @global int $content_width
  */
-function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 1170 );
+function content_width() {
+	$GLOBALS['content_width'] = 0;
 }
-add_action( 'after_setup_theme', '_s_content_width', 0 );
-
-
-/**
- * Enqueue scripts and styles.
- */
-function _s_scripts_style() {
-	// Load our main stylesheet.
-	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), '2017-04-15' );
-
-	// Load Modernizr and respond.js in the head
-	wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/respond.min.js', array(), '1.1.0', false );
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr-custom.js', array(), '3.1.0', false );
-
-	// Loads main theme JavaScript in the footer
-	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery-core' ), '2015-08-30', true );
-}
-add_action( 'wp_enqueue_scripts', '_s_scripts_style' );
-
 
 /**
  * Set default options for the theme on activation.
  */
-function _s_theme_activation() {
-	// Set image defaults
+function theme_activation() {
+	// Set image defaults.
 	update_option( 'image_default_align', 'left' );
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'medium' );
 }
-add_action( 'after_switch_theme', '_s_theme_activation' );
-
 
 /**
- * Custom template tags for this theme.
+ * Set up the admin.
  */
-require get_template_directory() . '/inc/template-tags.php';
+function setup_admin() {
+	add_editor_style( '/editor.css' );
+}
 
 /**
- * Custom functions that act independently of the theme templates.
+ * Enqueue theme scripts and styles.
  */
-require get_template_directory() . '/inc/extras.php';
+function enqueue_scripts() {
+	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), '2017-11-24' );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', [], '0.1.0', true );
+	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/js/functions.js', [ 'jquery-core' ], '0.1.0', true );
+}
 
 /**
- * Media customisations.
+ * Enqueue theme admin scripts and styles.
  */
-require get_template_directory() . '/inc/media.php';
-
-/**
- * TinyMCE customisations.
- */
-require get_template_directory() . '/inc/tinymce.php';
+function enqueue_admin_scripts() {
+	wp_enqueue_style( '_s-admin', get_stylesheet_directory_uri() . '/admin.css', [], '0.1.0' );
+}
