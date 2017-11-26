@@ -1,0 +1,37 @@
+/**
+ * Base color variables
+ *
+ * These colors shouldn't be applied directly.
+ */
+$color-black: hsl( 0, 0, 0 );
+$color-red: hsl( 0, 100, 50 );
+
+ /**
+ * Semantic color map
+ *
+ * This map contains all the website colors with each color containing a nested
+ * map of color 'weights', 400 being the base color similar to font-weights.
+ */
+ $colors: (
+	error: (
+		400: $color-red,
+	),
+	greyscale: (
+		0:    lighten( $color-black, 100 ),
+		100:  lighten( $color-black, 90 ),
+		200:  lighten( $color-black, 80 ),
+		300:  lighten( $color-black, 70 ),
+		400:  lighten( $color-black, 60 ),
+		500:  lighten( $color-black, 50 ),
+		600:  lighten( $color-black, 40 ),
+		700:  lighten( $color-black, 30 ),
+		800:  lighten( $color-black, 20 ),
+		900:  lighten( $color-black, 10 ),
+		1000: $color-black,
+	),
+);
+
+/* Helper function for accessing colors */
+@function swatch( $color, $weight: 400 ) {
+	@return map-get( map-get( $colors, $color ), $weight );
+}
