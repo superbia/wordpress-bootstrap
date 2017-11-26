@@ -1,21 +1,21 @@
 .container {
-	width: 100%;
 	position: relative;
-	clear: left;
+	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 15px;
 	padding-left: 15px;
-	
-	@include bp(tablet-portrait) {
+	clear: left;
+
+	@include bp( tablet-portrait ) {
 		width: $width-tablet-portrait;
 	}
-	
-	@include bp(tablet-landscape) {
+
+	@include bp( tablet-landscape ) {
 		width: $width-tablet-landscape;
 	}
-	
-	@include bp(desktop) {
+
+	@include bp( desktop ) {
 		width: $width-desktop;
 	}
 }
@@ -29,10 +29,10 @@
 }
 
 [class*="col-"] {
-	width: 100%;
 	position: relative;
-	float: left;
+	width: 100%;
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
+	float: left;
 }

@@ -1,18 +1,18 @@
 .vertical-align {
 	height: 100%;
 	word-spacing: -0.3em;
-	
+
 	&:before {
-		content: '';
 		display: inline-block;
-		vertical-align: middle;
 		height: 100%;
+		content: "";
+		vertical-align: middle;
 	}
 
 	&__middle {
-		float: none;
 		display: inline-block;
-		vertical-align: middle;
+		float: none;
 		word-spacing: 0;
+		vertical-align: middle;
 	}
 }
