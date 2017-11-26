@@ -28,6 +28,7 @@ function wrap_oembeds( $cache, $url ) {
 	$video_providers = array(
 		'ted.com',
 		'youtube',
+		'youtu.be',
 		'vimeo',
 		'vine',
 		'videopress',
