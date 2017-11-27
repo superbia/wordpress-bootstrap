@@ -6,13 +6,13 @@ ul.gform_fields {
 
 .gfield {
 	width: 100%;
-	float: left;
+	margin-bottom: 1.25em;
 	padding-right: 15px;
 	padding-left: 15px;
-	margin-bottom: 1.25em;
+	float: left;
 	text-align: left;
 
-	@include bp(tablet-portrait) {
+	@include bp( tablet-portrait ) {
 		width: 50%;
 
 		&--large {
@@ -32,7 +32,7 @@ ul.gform_fields {
 
 .gf_placeholder {
 	.input-error & {
-		color: red;
+		color: swatch( error, 400 );
 	}
 }
 
@@ -40,7 +40,7 @@ ul.gform_fields {
 .gfield--name {
 	margin: 0;
 
-	@include bp(tablet-portrait) {
+	@include bp( tablet-portrait ) {
 		margin-bottom: 1.25em;
 	}
 }
@@ -48,22 +48,22 @@ ul.gform_fields {
 .ginput_complex {
 	> span {
 		width: 100%;
-		float: left;
 		margin-bottom: 1.25em;
+		float: left;
 	}
 
 	.gform--hidden-labels & label {
 		@extend .screen-reader-text;
 	}
 
-	@include bp(tablet-portrait) {
+	@include bp( tablet-portrait ) {
 		margin: 0 -15px;
 
 		> span {
 			width: 50%;
+			margin: 0;
 			padding-right: 15px;
 			padding-left: 15px;
-			margin: 0;
 		}
 	}
 }
@@ -71,7 +71,7 @@ ul.gform_fields {
 // The overall gravity forms error message
 .validation_error {
 	margin-bottom: 1.5em;
-	color: red;
+	color: swatch( error, 400 );
 }
 
 // Applied to descriptions and individual error messages
