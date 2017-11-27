@@ -9,6 +9,7 @@
 	<exclude-pattern>phpcs.xml</exclude-pattern>
 	<exclude-pattern>public/wp</exclude-pattern>
 	<exclude-pattern>public/app/plugins</exclude-pattern>
+	<exclude-pattern>public/app/mu-plugins</exclude-pattern>
 	<exclude-pattern>public/app/themes/twentyseventeen</exclude-pattern>
 	<exclude-pattern>vendor/</exclude-pattern>
 
