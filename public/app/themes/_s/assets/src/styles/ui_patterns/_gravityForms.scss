@@ -12,7 +12,7 @@ ul.gform_fields {
 	float: left;
 	text-align: left;
 
-	@include respond-to( pad ) {
+	@include respond-to( tablet-portrait ) {
 		width: 50%;
 
 		&--large {
@@ -40,7 +40,7 @@ ul.gform_fields {
 .gfield--name {
 	margin: 0;
 
-	@include respond-to( pad ) {
+	@include respond-to( tablet-portrait ) {
 		margin-bottom: 1.25em;
 	}
 }
@@ -56,7 +56,7 @@ ul.gform_fields {
 		@extend .screen-reader-text;
 	}
 
-	@include respond-to( pad ) {
+	@include respond-to( tablet-portrait ) {
 		margin: 0 -15px;
 
 		> span {

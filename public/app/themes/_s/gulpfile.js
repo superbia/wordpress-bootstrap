@@ -50,7 +50,7 @@ gulp.task( 'styles', ['lint-sass'], () => {
 
 // Sass linting.
 gulp.task( 'lint-sass', () => {
-	return gulp.src( [ './assets/src/styles/**/*.scss', '!./assets/src/styles/base/_normalize.scss', '!./assets/src/styles/editor.scss' ] )
+	return gulp.src( [ './assets/src/styles/**/*.scss', '!./assets/src/styles/base/_normalize.scss' ] )
 		.pipe( sassLint( { configFile: '.sass-lint.yml' } ) )
 		.pipe( sassLint.format() )
 		.pipe( sassLint.failOnError() )

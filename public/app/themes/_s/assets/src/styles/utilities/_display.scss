@@ -23,7 +23,7 @@
 	display: none;
 }
 
-@include respond-to( pad ) {
+@include respond-to( tablet-portrait ) {
 	.u-plmToHnd-hidden {
 		display: block;
 	}

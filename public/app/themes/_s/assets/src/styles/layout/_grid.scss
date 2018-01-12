@@ -9,16 +9,16 @@
 }
 
 .container {
-	@include respond-to( pad ) {
-		width: $container-width-pad;
+	@include respond-to( mobile-landscape ) { // pad
+		width: $width-tablet-portrait;
 	}
 
-	@include respond-to( lap ) {
-		width: $container-width-lap;
+	@include respond-to( tablet-landscape ) { //lap
+		width: $width-tablet-landscape;
 	}
 
-	@include respond-to( desk ) {
-		width: $container-width-desk;
+	@include respond-to( desktop ) { // desk
+		width: $width-desktop;
 	}
 }
 
@@ -61,104 +61,4 @@
 
 .row--alignMiddle {
 	align-items: center;
-}
-
-.row--colMarginBottom {
-	// Cancel out extra margins at the bottom of the row as margins are consistently applied to sections.
-	margin-bottom: -20px;
-
-	> [class*="col-"] {
-		margin-bottom: 20px;
-	}
-}
-
-@include respond-to( hands ) {
-	.col-hnd-6 {
-		width: 50%;
-	}
-}
-
-@include respond-to( pad ) {
-	.col-pad-8 {
-		width: 66.66666667%;
-	}
-
-	.col-pad-6 {
-		width: 50%;
-	}
-
-	.col-pad-4 {
-		width: 33.33333333%;
-	}
-}
-
-@include respond-to( lap ) {
-	.col-lap-8 {
-		width: 66.66666667%;
-	}
-
-	.col-lap-7 {
-		width: 58.33333333%;
-	}
-
-	.col-lap-6 {
-		width: 50%;
-	}
-
-	.col-lap-4 {
-		width: 33.33333333%;
-	}
-
-	.col-lap-pull-6 {
-		right: 50%;
-	}
-
-	.col-lap-push-6 {
-		left: 50%;
-	}
-
-	.col-lap-2-5 {
-		width: 20.83333333%;
-	}
-
-	.col-lap-pull-7 {
-		right: 58.33333333%;
-	}
-
-	.col-lap-push-3 {
-		left: 25%;
-	}
-}
-
-@include respond-to( desk ) {
-	.container--doubleGutters {
-		padding-right: $gutter-size-x2;
-		padding-left:  $gutter-size-x2;
-
-		.row {
-			margin-right: - $gutter-size-x2;
-			margin-left:  - $gutter-size-x2;
-		}
-
-		[class*="col-"] {
-			padding-right: $gutter-size-x2;
-			padding-left:  $gutter-size-x2;
-		}
-
-		.row--colMarginBottom {
-			margin-bottom: -$gutter-size-x4;
-
-			> [class*="col-"] {
-				margin-bottom: $gutter-size-x4;
-			}
-		}
-
-		.col-dsk-10 {
-			width: 83.33333333%;
-		}
-
-		.col-dsk-offset-1 {
-			margin-left: 8.33333333%;
-		}
-	}
 }

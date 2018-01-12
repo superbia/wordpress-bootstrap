@@ -3,21 +3,18 @@
  *
  * @link https://github.com/at-import/breakpoint/wiki/Respond-To
  */
-@include add-breakpoint( "palm",       320px );  // plm
-@include add-breakpoint( "hands",      500px );  // hnd
-@include add-breakpoint( "pad",        800px );  // pad
-@include add-breakpoint( "lap",        1100px ); // lap
-@include add-breakpoint( "desk",       1500px ); // dsk
-@include add-breakpoint( "feature",    1600px );
+@include add-breakpoint( "mobile-landscape",  568px );
+@include add-breakpoint( "tablet-portrait",   768px );
+@include add-breakpoint( "tablet-landscape",  992px );
+@include add-breakpoint( "desktop",           1200px );
 
 // Breakpoint config
 @include breakpoint-set( "to ems", true );
 
 // Dimensions
-$container-width-pad: 770px;
-$container-width-lap: 1070px;
-$container-width-desk: 1470px;
-$container-width-feature: 1600px;
+$width-tablet-portrait: 750px;
+$width-tablet-landscape: 970px;
+$width-desktop: 1170px;
 
 $gutter-size: 15px;
 $gutter-size-x2: $gutter-size * 2;
