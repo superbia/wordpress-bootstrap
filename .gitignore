@@ -14,13 +14,8 @@ config.*.php
 # Data
 data/
 
-# Codekit
-public/app/themes/*/config.codekit
-public/app/themes/*/sass/.sass-cache
-
 # Assets
-public/app/themes/*/style.css
-public/app/themes/*/style.css.map
+public/app/themes/*/assets/dist/
 
 # WordPress
 public/wp

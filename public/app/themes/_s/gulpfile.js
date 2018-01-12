@@ -33,12 +33,12 @@ const config = {
 
 // Compile and minify styles.
 gulp.task( 'styles', ['lint-sass'], () => {
-	gulp.src( './sass/*.scss' )
+	gulp.src( './assets/src/styles/*.scss' )
 		.pipe( sourcemaps.init() )
 		.pipe( sass( config.sass ).on( 'error', sass.logError ) )
 		.pipe( postcss( config.postcss ) )
 		.pipe( sourcemaps.write('.') )
-		.pipe( gulp.dest('./') )
+		.pipe( gulp.dest('./assets/dist/styles') )
 		.pipe( browserSync.stream( { stream: true } ) )
 		.pipe( notify({
 			title: 'SASS',
@@ -50,7 +50,7 @@ gulp.task( 'styles', ['lint-sass'], () => {
 
 // Sass linting.
 gulp.task( 'lint-sass', () => {
-	return gulp.src( [ './sass/**/*.scss', '!./sass/_normalize.scss', '!./sass/editor.scss', '!./sass/ui_patterns/_accessibility.scss' ] )
+	return gulp.src( [ './assets/src/styles/**/*.scss', '!./assets/src/styles/base/_normalize.scss' ] )
 		.pipe( sassLint( { configFile: '.sass-lint.yml' } ) )
 		.pipe( sassLint.format() )
 		.pipe( sassLint.failOnError() )
@@ -63,7 +63,7 @@ gulp.task( 'lint-sass', () => {
 
 // JS linting.
 gulp.task( 'jshint', () => {
-	return gulp.src( 'js/functions.js' )
+	return gulp.src( 'assets/src/scripts/functions.js' )
 		.pipe( plumber() )
 		.pipe( jshint() )
 		.pipe( jshint.reporter( 'jshint-stylish' ) )
@@ -77,19 +77,19 @@ gulp.task( 'jshint', () => {
 
 // Automate custom modernizr build.
 gulp.task( 'modernizr', () => {
-	gulp.src( [ './sass/**/*.scss', './js/*.js' ] )
+	gulp.src( [ './assets/src/styles/**/*.scss', './assets/src/scripts/*.js' ] )
 	.pipe( modernizr( {
 		options: [ 'setClasses' ]
 	} ) )
 	.pipe( uglify() )
-	.pipe( gulp.dest( './js' ) )
+	.pipe( gulp.dest( './assets/dist/scripts' ) )
 });
 
 // Optimise images.
 gulp.task( 'images', () => {
-	gulp.src( './images/*' )
+	gulp.src( './assets/src/images/*' )
 		.pipe( imagemin( config.imagemin, { verbose: true } ) )
-		.pipe( gulp.dest( './images' ) );
+		.pipe( gulp.dest( './assets/dist/images' ) );
 });
 
 // Browsersync
@@ -103,8 +103,8 @@ gulp.task( 'browsersync', () => {
 
 // Watch
 gulp.task( 'watch', [ 'browsersync' ], () => {
-	gulp.watch( 'sass/**/*.scss', [ 'styles' ] );
-	gulp.watch( 'js/*.js', ['jshint'] ).on( 'change', browserSync.reload );
+	gulp.watch( 'assets/src/styles/**/*.scss', [ 'styles' ] );
+	gulp.watch( [ 'assets/src/scripts/**/*.js','!assets/src/scripts/admin/*.js' ], [ 'scripts-watch' ] );
 	gulp.watch( '**/*.php' ).on( 'change', browserSync.reload );
 });
 

@@ -19,7 +19,6 @@ add_action( 'after_setup_theme',     __NAMESPACE__ . '\\content_width', 0 );
 add_action( 'after_switch_theme',    __NAMESPACE__ . '\\theme_activation' );
 add_action( 'admin_init',            __NAMESPACE__ . '\\setup_admin' );
 add_action( 'wp_enqueue_scripts',    __NAMESPACE__ . '\\enqueue_scripts' );
-add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_admin_scripts' );
 
 /**
  * Setup the theme
@@ -67,21 +66,14 @@ function theme_activation() {
  * Set up the admin.
  */
 function setup_admin() {
-	add_editor_style( '/editor.css' );
+	add_editor_style( 'assets/dist/styles/editor.css' );
 }
 
 /**
  * Enqueue theme scripts and styles.
  */
 function enqueue_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), '2017-11-24' );
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', [], '0.1.0', true );
-	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/js/functions.js', [ 'jquery-core' ], '0.1.0', true );
-}
-
-/**
- * Enqueue theme admin scripts and styles.
- */
-function enqueue_admin_scripts() {
-	wp_enqueue_style( '_s-admin', get_stylesheet_directory_uri() . '/admin.css', [], '0.1.0' );
+	wp_enqueue_style( '_s-styles', get_stylesheet_directory_uri() . '/assets/dist/styles/theme.css', [], '0.1.0' );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/dist/scripts/modernizr.js', [], '0.1.0', true );
+	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/assets/src/scripts/functions.js', [ 'jquery-core' ], '0.1.0', true );
 }

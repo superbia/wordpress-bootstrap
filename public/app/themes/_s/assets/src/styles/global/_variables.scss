@@ -1,0 +1,24 @@
+/**
+ * Breakpoint sass with the Respond-To syntax
+ *
+ * @link https://github.com/at-import/breakpoint/wiki/Respond-To
+ */
+@include add-breakpoint( "mobile-landscape",  568px );
+@include add-breakpoint( "tablet-portrait",   768px );
+@include add-breakpoint( "tablet-landscape",  992px );
+@include add-breakpoint( "desktop",           1200px );
+
+// Breakpoint config
+@include breakpoint-set( "to ems", true );
+
+// Dimensions
+$width-tablet-portrait: 750px;
+$width-tablet-landscape: 970px;
+$width-desktop: 1170px;
+
+$gutter-size: 15px;
+$gutter-size-x2: $gutter-size * 2;
+$gutter-size-x4: $gutter-size * 4;
+
+// Fonts
+$font-sans: Helvetica, sans-serif;

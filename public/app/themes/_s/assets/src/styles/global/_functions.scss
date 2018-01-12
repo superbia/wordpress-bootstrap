@@ -1,0 +1,40 @@
+// Convert pixels to ems
+@function em( $pxVal, $base: 16 ) {
+	@if ( unitless( $pxVal ) ) {
+		$pxVal: $pxVal * 1px;
+	}
+
+	@if ( unitless( $base ) ) {
+		$base: $base * 1px;
+	}
+
+	@return $pxVal / $base * 1em;
+}
+
+// Convert pixels to rems
+@function rem( $pxVal ) {
+	@if ( unitless( $pxVal ) ) {
+		$pxVal: $pxVal * 1px;
+	}
+
+	$remSize: $pxVal / 16px;
+	@return #{$remSize}rem;
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint( $color, $percentage ) {
+  @return mix( white, $color, $percentage );
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade( $color, $percentage ) {
+  @return mix( black, $color, $percentage );
+}

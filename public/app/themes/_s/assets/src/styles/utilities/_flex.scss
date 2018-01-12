@@ -1,0 +1,40 @@
+/*
+ * Subset of Flex utilities from SUIT CSS.
+ * @link https://github.com/suitcss/utils-flex
+ */
+
+.u-flex {
+	display: flex;
+}
+
+/*
+ * Shorthand
+ *
+ * Declares all values instead of keywords like 'initial' to work around IE10
+ * https://www.w3.org/TR/css-flexbox-1/#flex-common
+ *
+ * 1. Fixes issue in IE 10 where flex-basis is ignored - https://git.io/vllMt
+ *    This ensures it overrides flex-basis set in other utilities.
+ */
+
+/*
+ * Sizes the item based on the width/height properties, but makes them fully
+ * flexible, so that they absorb any free space along the main axis.
+ */
+
+.u-flexAuto {
+  flex: 1 1 auto;
+  flex-basis: auto; /* 1 */
+}
+
+
+/*
+ * Sizes the item according to the width/height properties, but makes the flex
+ * item fully inflexible. Similar to initial, except that flex items are
+ * not allowed to shrink, even in overflow situations.
+ */
+
+.u-flexNone {
+  flex: 0 0 auto;
+  flex-basis: auto; /* 1 */
+}

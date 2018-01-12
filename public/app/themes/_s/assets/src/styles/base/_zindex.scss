@@ -1,0 +1,18 @@
+/**
+ * Z-index scale.
+ */
+$zindex: (
+	skyhigh    : 100000, // above the WP toolbar
+	modal      : 10000,
+	overlay    : 9000,
+	dropdown   : 8000,
+	navbar     : 7000,
+	header     : 6000,
+	content    : 1000,
+	background : 1
+);
+
+/* Helper function for accessing the z-index scale */
+@function zindex( $key ) {
+	@return map-get( $zindex, $key );
+}

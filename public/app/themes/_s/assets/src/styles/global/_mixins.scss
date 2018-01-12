@@ -1,0 +1,20 @@
+// Font smoothing
+@mixin fontSmoothing( $subpixel: false ) {
+	@if ( $subpixel == true ) {
+		-webkit-font-smoothing: subpixel-antialiased; // sass-lint:disable-line no-vendor-prefixes
+		-moz-osx-font-smoothing: auto; // sass-lint:disable-line no-vendor-prefixes
+	} @else {
+		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+		-moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+	}
+}
+
+// Font size in rems
+@mixin remFontSize( $size ) {
+	@if ( unitless( $size ) ) {
+		$size: $size * 1px;
+	}
+
+	font-size: $size;
+	font-size: rem( $size );
+}

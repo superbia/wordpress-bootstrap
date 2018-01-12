@@ -1,0 +1,64 @@
+.container,
+.containerFluid {
+	position: relative;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $gutter-size;
+	padding-left: $gutter-size;
+}
+
+.container {
+	@include respond-to( mobile-landscape ) { // pad
+		width: $width-tablet-portrait;
+	}
+
+	@include respond-to( tablet-landscape ) { //lap
+		width: $width-tablet-landscape;
+	}
+
+	@include respond-to( desktop ) { // desk
+		width: $width-desktop;
+	}
+}
+
+.row {
+	margin-right: -$gutter-size;
+	margin-left: -$gutter-size;
+	clear: both;
+}
+
+[class*="col-"] {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: $gutter-size;
+	padding-left: $gutter-size;
+	float: left;
+}
+
+.row--inline,
+.row--flex {
+	word-spacing: -0.3em;
+
+	> [class*="col-"] {
+		display: inline-block;
+		float: none;
+		word-spacing: 0;
+		vertical-align: top;
+		direction: ltr;
+	}
+}
+
+.row--flex {
+	display: flex;
+	flex-flow: row wrap;
+
+	> [class*="col-"] {
+		flex-basis: auto;
+	}
+}
+
+.row--alignMiddle {
+	align-items: center;
+}
