@@ -1,7 +1,5 @@
 # Application
 public/app/mu-plugins/
-!public/app/mu-plugins/load.php
-!public/app/mu-plugins/disallow-indexing.php
 public/app/plugins/
 !public/app/plugins/index.php
 public/app/upgrade
@@ -11,18 +9,24 @@ public/app/uploads/
 # Config
 config.*.php
 
-# Data
-data/
+# WordPress
+public/wp
 
 # Assets
 public/app/themes/*/assets/dist/
-
-# WordPress
-public/wp
 
 # Vendor (e.g. Composer, NPM, etc)
 vendor/
 public/app/themes/*/node_modules/
 
-# Debug log
+# Logs
 public/app/debug.log
+public/app/themes/*/yarn-error.log
+log/
+logs/
+
+# Query Monitor
+public/app/db.php
+
+# Data
+data/
