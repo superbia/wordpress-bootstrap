@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+readonly PROJECT="$(pwd)"
+readonly THEME_DIR="$PROJECT"/public/app/themes
+readonly BOOTSTRAP_THEME="$THEME_DIR"/_s
+
+readonly RESET_TEXT=$(tput sgr0)
+readonly RED=$(tput setaf 1)
+readonly GREEN=$(tput setaf 2)
+
+titleCase() {
+	a=$(echo "$1" | tr '[:upper:]' '[:lower:]' )
+	echo "$a" | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
+}
+
+echo ""
+echo "Doing theme search and replace..."
+read -rp "Theme name [My Awesome Theme]: " themeName
+textDomain=$(echo "${themeName// /-}" | tr '[:upper:]' '[:lower:]' )
+functionPrefix=${textDomain//-/_}
+packageName=$(titleCase "$themeName")
+packageName=${packageName// /}
+
+# Check the bootstrap theme exists
+if [[ -d "$BOOTSTRAP_THEME" ]]; then
+	# Text domain: Search for: '_s' and replace with: 'megatherium-is-awesome'
+	find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/'_s'/'$textDomain'/g" {} \;
+	echo "- Updated the text domain: $GREEN$textDomain$RESET_TEXT"
+	# Function names: Search for: _s_ and replace with: megatherium_is_awesome_
+	find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/_s_/$functionPrefix/g" {} \;
+	echo "- Updated the function name prefix: $GREEN$functionPrefix$RESET_TEXT"
+	# Search for: Text Domain: _s and replace with: Text Domain: megatherium-is-awesome in style.css.
+	find "$BOOTSTRAP_THEME" -name '*.css' -exec sed -i '' "s/Text Domain: _s/Text Domain: $textDomain/g" {} \;
+	echo "- Updated the style text domain: ${GREEN}Text Domain: $textDomain$RESET_TEXT"
+	# Doc blocks: Search for:  _s and replace with:  Megatherium_is_Awesome
+	find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/ _s/ $packageName/g" {} \;
+	echo "- Updated doc blocks: $GREEN$packageName$RESET_TEXT"
+	# Prefixed handles Search for: _s- and replace with: megatherium-is-awesome-
+	find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/_s-/$textDomain-/g" {} \;
+	echo "- Updated prefixed handles: $GREEN$textDomain-$RESET_TEXT"
+	# rename the directory
+	$(mv "$BOOTSTRAP_THEME" "$THEME_DIR/$textDomain")
+	echo "- Renamed the theme directory: $GREEN$THEME_DIR/$textDomain$RESET_TEXT"
+	echo "Completed the theme search and replace!"
+else
+	echo "$REDThe bootrap '_s' theme is missing!$RESET_TEXT"
+	echo "- $BOOTSTRAP_THEME"
+fi
+
+# Create config.dev.php file from config.sample.php
+
+# Create random db prefix
+
+# remove the git repo
+#echo "Removed the bootstrap git repo"
+
+# create new git repo
+#echo "Created a new git repo"
+
+# Install WP Enforcer
+#echo "Installed WP Enforcer"
+
+exit 0
+
+
+# Text domain: Search for: '_s' and replace with: 'megatherium-is-awesome'
+# Function names: Search for: _s_ and replace with: megatherium_is_awesome_
+# Search for: Text Domain: _s and replace with: Text Domain: megatherium-is-awesome in style.css.
+# Doc blocks: Search for:  _s and replace with:  Megatherium_is_Awesome
+# Prefixed handles Search for: _s- and replace with: megatherium-is-awesome-
