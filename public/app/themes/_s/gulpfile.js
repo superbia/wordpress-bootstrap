@@ -95,7 +95,7 @@ gulp.task( 'images', () => {
 // Browsersync
 gulp.task( 'browsersync', () => {
 	browserSync.init( {
-		proxy: 'http://wp-bootstrap.dev',
+		proxy: 'https://wp-bootstrap.dev',
 		open: false,
 		notify: false
 	});
