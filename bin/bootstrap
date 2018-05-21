@@ -13,9 +13,23 @@ titleCase() {
 	echo "$a" | awk '{for(i=1;i<=NF;i++){ $i=toupper(substr($i,1,1)) substr($i,2) }}1'
 }
 
+# Display a confirmation message and return 0/1 based on the result.
+confirm() {
+  read -r -p "$1 [Y/n] " response
+  response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+
+  if [[ "$response" == "y" ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
+read -rp "Theme name [My Awesome Theme]: " themeName
+read -rp "Domain name [awesome.com]:" domainName
 echo ""
 echo "Doing theme search and replace..."
-read -rp "Theme name [My Awesome Theme]: " themeName
+
 textDomain=$(echo "${themeName// /-}" | tr '[:upper:]' '[:lower:]' )
 functionPrefix=${textDomain//-/_}
 packageName=$(titleCase "$themeName")
@@ -45,26 +59,42 @@ if [[ -d "$BOOTSTRAP_THEME" ]]; then
 else
 	echo "$REDThe bootrap '_s' theme is missing!$RESET_TEXT"
 	echo "- $BOOTSTRAP_THEME"
+	#exit 0
 fi
 
-# Create config.dev.php file from config.sample.php
+echo ""
+echo "Updating config..."
 
 # Create random db prefix
+dbPrefix=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-z0-9' | fold -w 6 | head -n 1)
+if [[ -f "$PROJECT"/public/wp-config.php ]]; then
+	sed -i '' "s/WP_DB_PREFIX/${dbPrefix}_/g" "$PROJECT"/public/wp-config.php;
+	echo "- Created random database prefix: $GREEN${dbPrefix}_$RESET_TEXT"
+fi
+
+# Update the gulp proxy
+if [[ -f "$THEME_DIR/$textDomain/gulpfile.js" ]]; then
+	sed -i '' "s/wp-bootstrap.dev/dev.${domainName}/g" "$THEME_DIR/$textDomain/gulpfile.js";
+	echo "- Updated Browsersync proxy url"
+fi
+
+echo ""
+echo "Setting up version control..."
 
 # remove the git repo
-#echo "Removed the bootstrap git repo"
-
-# create new git repo
-#echo "Created a new git repo"
-
-# Install WP Enforcer
-#echo "Installed WP Enforcer"
+if [[ -d "$PROJECT"/.git ]]; then
+	if confirm "Remove bootstrap git repo and init new"; then
+		$(rm -rf "$PROJECT/.git")
+		echo "- Removed boostrap git repo"
+		# create new git repo
+		$(git init "$PROJECT" > /dev/null 2>&1)
+		$(git add "$PROJECT" > /dev/null 2>&1)
+		$(git commit -m "Initial project bootstrap." > /dev/null 2>&1)
+		echo "- Created a new git repo"
+		# Install WP Enforcer
+		$("$PROJECT"/vendor/bin/wp-enforcer > /dev/null 2>&1)
+		echo "- Installed WP Enforcer"
+	fi
+fi
 
 exit 0
-
-
-# Text domain: Search for: '_s' and replace with: 'megatherium-is-awesome'
-# Function names: Search for: _s_ and replace with: megatherium_is_awesome_
-# Search for: Text Domain: _s and replace with: Text Domain: megatherium-is-awesome in style.css.
-# Doc blocks: Search for:  _s and replace with:  Megatherium_is_Awesome
-# Prefixed handles Search for: _s- and replace with: megatherium-is-awesome-

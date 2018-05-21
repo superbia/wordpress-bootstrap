@@ -58,7 +58,7 @@ if ( WP_DEV_SERVER ) {
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'wp_';
+$table_prefix = 'WP_DB_PREFIX';
 
 /** Disable the theme and plugin editors */
 define( 'DISALLOW_FILE_EDIT', true );
