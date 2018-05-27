@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Create config.dev.php file from config.sample.php
+# Coposer install
+# Yarn
