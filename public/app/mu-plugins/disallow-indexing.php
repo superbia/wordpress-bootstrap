@@ -1,13 +1,15 @@
 <?php
-/*
+/**
 Plugin Name:  Disallow Indexing
-Plugin URI:   https://roots.io/bedrock/
-Description:  Disallow indexing of your site on non-production environments.
+Description:  Disallow indexing on non-production environments.
 Version:      1.0.0
-Author:       Roots
-Author URI:   https://roots.io/
+Author:       Superbia
+Author URI:   https://superbia.com.au/
 License:      MIT License
-*/
-if ( false == WP_PRODUCTION_SERVER && !is_admin() ) {
-    add_action( 'pre_option_blog_public', '__return_zero' );
+
+@package SuperbiaBootstrap
+ */
+
+if ( false === WP_PRODUCTION_SERVER ) {
+	add_action( 'pre_option_blog_public', '__return_zero' );
 }
