@@ -2,3 +2,4 @@
 /.gitignore export-ignore
 /phpcs.xml export-ignore
 /config.sample.php export-ignore
+/bin export-ignore
