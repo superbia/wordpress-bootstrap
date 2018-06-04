@@ -1,5 +1,57 @@
 #!/usr/bin/env bash
 
-# Create config.dev.php file from config.sample.php
-# Coposer install
+readonly PROJECT="$(pwd)"
+
+# Define command-line options here.
+# Follow -o with a comma-separated list of single-character option names.
+# Follow -l with a comma-separated list of long option names.
+# Options may be followed by one colon to indicate they have a required argument
+if ! options=$(getopt -o h -l help,theme: -- "$@")
+then
+		# something went wrong, getopt will put out an error message for us
+exit 1
+fi
+
+while [ $# -gt 0 ]
+do
+	case $1 in
+	-h|--help)
+		echo "After bootstrapping a new project, run this script to finish installation."
+		echo ""
+		echo "USAGE:"
+		echo "  install [options]"
+		echo ""
+		echo "OPTIONS:"
+		echo "  --help, -h           Show this help and usage"
+		echo "  --theme 'theme-name' The directory name of the theme to install"
+		echo ""
+		exit;;
+	--theme)
+		theme="$2" ; shift;;
+	# For options with required arguments, an additional shift is required
+	# -o|--option) myarg="$2" ; shift;;
+	(--) shift;;
+	(-*) echo "$0: error - unrecognized option $1" 1>&2; exit 1;;
+	(*) shift;;
+	esac
+	shift
+done
+
+# Composer install
+composer install
+
 # Yarn
+if [[ "$theme" != false ]]; then
+	echo "Installing node modules and running default gulp task..."
+	$(cd "$PROJECT/public/app/themes/$theme" && yarn && gulp)
+fi
+
+# Create config.dev.php file from config.sample.php
+if [[ ! -f "$PROJECT/config.dev.php" ]]; then
+	echo "Creating development config"
+	cp "$PROJECT/config.sample.php" "$PROJECT/config.dev.php"
+	echo "Adding unique salts from WordPress.org"
+	curl "https://api.wordpress.org/secret-key/1.1/salt/" >> "$PROJECT/config.dev.php"
+fi
+
+exit 0

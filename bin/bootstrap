@@ -91,10 +91,12 @@ if [[ -d "$PROJECT"/.git ]]; then
     $(git add "$PROJECT" > /dev/null 2>&1)
     $(git commit -m "Initial project bootstrap." > /dev/null 2>&1)
     echo "- Created a new git repo"
-    # Install WP Enforcer
-    $("$PROJECT"/vendor/bin/wp-enforcer > /dev/null 2>&1)
-    echo "- Installed WP Enforcer"
   fi
 fi
+
+# Project install
+echo ""
+echo "Installing the project..."
+$("$PROJECT/bin/install" --theme "$textDomain")
 
 exit 0
