@@ -8,7 +8,7 @@ Author URI:   https://superbia.com.au/
 License:      MIT License
 
 @package SuperbiaBootstrap
-*/
+ */
 
 namespace Superbia\Analytics;
 

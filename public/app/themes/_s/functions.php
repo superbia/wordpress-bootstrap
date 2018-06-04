@@ -9,16 +9,16 @@
 
 namespace _s\Theme;
 
-require_once( __DIR__ . '/inc/extras.php' );
-require_once( __DIR__ . '/inc/media.php' );
-require_once( __DIR__ . '/inc/template-tags.php' );
-require_once( __DIR__ . '/inc/editor.php' );
+require_once __DIR__ . '/inc/extras.php';
+require_once __DIR__ . '/inc/media.php';
+require_once __DIR__ . '/inc/template-tags.php';
+require_once __DIR__ . '/inc/editor.php';
 
-add_action( 'after_setup_theme',     __NAMESPACE__ . '\\setup' );
-add_action( 'after_setup_theme',     __NAMESPACE__ . '\\content_width', 0 );
-add_action( 'after_switch_theme',    __NAMESPACE__ . '\\theme_activation' );
-add_action( 'admin_init',            __NAMESPACE__ . '\\setup_admin' );
-add_action( 'wp_enqueue_scripts',    __NAMESPACE__ . '\\enqueue_scripts' );
+add_action( 'after_setup_theme',  __NAMESPACE__ . '\\setup' );
+add_action( 'after_setup_theme',  __NAMESPACE__ . '\\content_width', 0 );
+add_action( 'after_switch_theme', __NAMESPACE__ . '\\theme_activation' );
+add_action( 'admin_init',         __NAMESPACE__ . '\\setup_admin' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 
 /**
  * Setup the theme

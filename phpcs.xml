@@ -1,18 +1,27 @@
 <?xml version="1.0"?>
-<ruleset name="Wordpress Bootstrap">
-	<description>Wordpress Bootstrap PHP Coding Standards</description>
+<!--
+	Customize the rules WP Enforcer uses by editing this file according to PHP_CodeSniffer's
+	ruleset.xml standard: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
+-->
+<ruleset name="WP-Enforcer">
+	<description>Coding standards from WP Enforcer.</description>
 
 	<!-- Scan all files in directory -->
 	<file>.</file>
 
-	<!-- Ignore WordPress, Plugins and Composer dependencies -->
+	<!-- FILES -->
 	<exclude-pattern>phpcs.xml</exclude-pattern>
-	<exclude-pattern>public/wp</exclude-pattern>
-	<exclude-pattern>public/app/plugins</exclude-pattern>
-	<exclude-pattern>public/app/mu-plugins</exclude-pattern>
-	<exclude-pattern>public/app/themes/twentyseventeen</exclude-pattern>
-	<exclude-pattern>vendor/</exclude-pattern>
+	<exclude-pattern>public/wp/*</exclude-pattern>
+	<exclude-pattern>public/app/plugins/*</exclude-pattern>
+	<exclude-pattern>public/app/uploads/*</exclude-pattern>
+	<exclude-pattern>public/app/db.php</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>data/*</exclude-pattern>
 
+	<!--
+		Don't get angry about checking files that don't contain code
+		@link https://github.com/stevegrunwell/wp-enforcer/issues/12
+	-->
 	<rule ref="Internal.NoCodeFound">
 		<severity>0</severity>
 	</rule>
@@ -22,23 +31,10 @@
 	</rule>
 
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
-		<exclude-pattern>*/src/*</exclude-pattern>
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
-		<exclude-pattern>*/src/*</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.VIP.RestrictedFunctions.get_term_link">
 		<exclude-pattern>*</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.VIP.RestrictedFunctions.get_adjacent_post">
-		<exclude-pattern>*</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress-VIP" />
+	<rule ref="WordPress-Extra" />
 	<rule ref="WordPress-Docs" />
 
 	<!-- Scan only PHP files -->
@@ -46,5 +42,4 @@
 
 	<!-- Show colors in console -->
 	<arg value="-colors"/>
-
 </ruleset>
