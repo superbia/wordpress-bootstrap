@@ -10,7 +10,7 @@
  * * MySQL settings
  * * Secret keys
  *
- * @package NeosKosmos
+ * @package _s
  */
 
 /**
