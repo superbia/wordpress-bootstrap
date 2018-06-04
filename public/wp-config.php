@@ -31,6 +31,20 @@ define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/app' );
 define( 'WP_CONTENT_URL', WP_HOME . '/app' );
 
 /**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix = 'WP_DB_PREFIX';
+
+/** Disable the theme and plugin editors */
+define( 'DISALLOW_FILE_EDIT', true );
+
+/** Set the number of post revisions */
+define( 'WP_POST_REVISIONS', 3 );
+
+/**
  * Define type of server
  *
  * Depending on the type other stuff can be configured
@@ -51,20 +65,6 @@ if ( WP_DEV_SERVER ) {
 } else {
 	require DB_CREDENTIALS_PATH . '/config.production.php';
 }
-
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each
- * a unique prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix = 'WP_DB_PREFIX';
-
-/** Disable the theme and plugin editors */
-define( 'DISALLOW_FILE_EDIT', true );
-
-/** Set the number of post revisions */
-define( 'WP_POST_REVISIONS', 3 );
 
 /**
  * For developers: WordPress debugging mode.
