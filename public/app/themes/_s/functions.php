@@ -36,6 +36,12 @@ function setup() {
 	// Switch default core markup for search form, comment form, and comments to output valid HTML5.
 	add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
 
+	// Disable WordPress features.
+	add_theme_support( 'terminator-disable-emoji' );
+	add_theme_support( 'terminator-disable-wp-oembed' );
+	add_theme_support( 'terminator-disable-rest-user-endpoint' );
+	add_theme_support( 'terminator-clean-up-head' );
+
 	// Register navigation menus.
 	register_nav_menu( 'nav-primary', 'Main navigation' );
 	register_nav_menu( 'nav-secondary', 'Secondary navigation' );

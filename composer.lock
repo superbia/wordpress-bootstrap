@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3540fbfd7b5256758348b4d6bf85a0f5",
+    "content-hash": "e5af387a1ac373780d78eb02cb0ca1aa",
     "packages": [
         {
             "name": "composer/installers",
@@ -249,16 +249,33 @@
             "time": "2018-01-29T14:49:29+00:00"
         },
         {
-            "name": "superbia/foreman",
-            "version": "v1.0.11",
+            "name": "superbia/terminator",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:superbiaweb/foreman.git",
-                "reference": "52391f342edcf203cf1b5f44f34f631498c6f529"
+                "url": "git@bitbucket.org:superbiaweb/terminator",
+                "reference": "b6f76d5972255c917e536aca1502b16ad0a0968d"
             },
-            "type": "wordpress-muplugin",
-            "description": "Functionality plugin for WordPress",
-            "time": "2017-05-11T02:04:08+00:00"
+            "require-dev": {
+                "stevegrunwell/wp-enforcer": "^0.5.0"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Superbia\\Terminator\\": "src/"
+                }
+            },
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Dylan Nichols",
+                    "email": "dylan@superbia.com.au"
+                }
+            ],
+            "description": "Disable core WordPress functionality via theme support.",
+            "time": "2018-01-20T12:14:26+00:00"
         },
         {
             "name": "wpackagist-plugin/limit-login-attempts",
