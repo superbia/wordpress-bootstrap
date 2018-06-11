@@ -1,5 +1,5 @@
 # Application
-public/app/mu-plugins/
+public/app/mu-plugins/*/
 public/app/plugins/
 !public/app/plugins/index.php
 public/app/upgrade
