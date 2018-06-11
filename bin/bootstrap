@@ -44,10 +44,12 @@ if [[ -d "$BOOTSTRAP_THEME" ]]; then
   find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/_s_/$functionPrefix/g" {} \;
   echo "- Updated the function name prefix: $GREEN$functionPrefix$RESET_TEXT"
   # Search for: Text Domain: _s and replace with: Text Domain: megatherium-is-awesome in style.css.
-  find "$BOOTSTRAP_THEME" -name '*.css' -exec sed -i '' "s/Text Domain: _s/Text Domain: $textDomain/g" {} \;
+  find "$BOOTSTRAP_THEME" -name 'style.css' -exec sed -i '' "s/Theme Name: _s/Theme Name: $themeName/g" {} \;
+  find "$BOOTSTRAP_THEME" -name 'style.css' -exec sed -i '' "s/Text Domain: _s/Text Domain: $textDomain/g" {} \;
   echo "- Updated the style text domain: ${GREEN}Text Domain: $textDomain$RESET_TEXT"
   # Doc blocks: Search for:  _s and replace with:  Megatherium_is_Awesome
   find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/ _s/ $packageName/g" {} \;
+  find "$PROJECT" -name 'config.sample.php' -exec sed -i '' "s/ _s/ $packageName/g" {} \;
   echo "- Updated doc blocks: $GREEN$packageName$RESET_TEXT"
   # Prefixed handles Search for: _s- and replace with: megatherium-is-awesome-
   find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/_s-/$textDomain-/g" {} \;
