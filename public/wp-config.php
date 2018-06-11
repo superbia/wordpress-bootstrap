@@ -22,6 +22,13 @@
  * @package WordPress
  */
 
+/**
+ * Include composer autoloader if it's available
+ */
+if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
+	include( __DIR__ . '/../vendor/autoload.php' );
+}
+
 /** Running wordpress install from the wp directory */
 define( 'WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp' );
 define( 'WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] );
