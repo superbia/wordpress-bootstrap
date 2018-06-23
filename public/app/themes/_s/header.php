@@ -21,7 +21,18 @@ namespace _s\Theme;
 </head>
 <body>
 	<header class="header" id="header" role="banner">
-
+		<?php
+		wp_nav_menu(
+			[
+				'theme_location' => 'nav-primary',
+				'container'      => false,
+				'menu_id'        => 'navMain',
+				'menu_class'     => 'navMain',
+				'fallback_cb'    => false,
+				'depth'          => 2,
+			]
+		);
+		?>
 	</header>
 	<main class="main" id="main">
 
