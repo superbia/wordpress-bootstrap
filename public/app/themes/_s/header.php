@@ -9,6 +9,8 @@
  * @package _s
  */
 
+namespace _s\Theme;
+
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">

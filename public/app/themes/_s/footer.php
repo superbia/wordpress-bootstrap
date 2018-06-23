@@ -9,6 +9,8 @@
  * @package _s
  */
 
+namespace _s\Theme;
+
 ?>
 	</main>
 	<?php wp_footer(); ?>

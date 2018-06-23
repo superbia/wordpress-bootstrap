@@ -12,6 +12,8 @@
  * @package _s
  */
 
+namespace _s\Theme;
+
 get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
