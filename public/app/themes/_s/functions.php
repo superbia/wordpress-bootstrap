@@ -11,6 +11,7 @@ namespace _s\Theme;
 
 require_once __DIR__ . '/inc/extras.php';
 require_once __DIR__ . '/inc/media.php';
+require_once __DIR__ . '/inc/menus.php';
 require_once __DIR__ . '/inc/template-tags.php';
 require_once __DIR__ . '/inc/editor.php';
 
