@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5af387a1ac373780d78eb02cb0ca1aa",
+    "content-hash": "4a0829f5eb3da166efdfd1f012ad0beb",
     "packages": [
         {
             "name": "composer/installers",
@@ -249,6 +249,35 @@
             "time": "2018-01-29T14:49:29+00:00"
         },
         {
+            "name": "superbia/blackbird",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:superbiaweb/blackbird",
+                "reference": "cabd6cf74c47e15562977f51e4b76030d721da23"
+            },
+            "require-dev": {
+                "stevegrunwell/wp-enforcer": "^0.5.0"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Sup\\Blackbird\\": "src/"
+                }
+            },
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Dylan Nichols",
+                    "email": "dylan@superbia.com.au"
+                }
+            ],
+            "description": " Mach 3+ speed optimisations for WordPress.",
+            "time": "2018-06-25T03:17:09+00:00"
+        },
+        {
             "name": "superbia/terminator",
             "version": "v0.1.0",
             "source": {
@@ -321,16 +350,16 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.2.3",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27"
+                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/4842476c434e375f9d3182ff7b89059583aa8b27",
-                "reference": "4842476c434e375f9d3182ff7b89059583aa8b27",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
+                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
                 "shasum": ""
             },
             "require": {
@@ -368,7 +397,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-02-20T21:35:23+00:00"
+            "time": "2018-06-06T23:58:19+00:00"
         },
         {
             "name": "stevegrunwell/wp-enforcer",

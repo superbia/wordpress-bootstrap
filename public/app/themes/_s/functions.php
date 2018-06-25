@@ -43,6 +43,9 @@ function setup() {
 	add_theme_support( 'terminator-disable-rest-user-endpoint' );
 	add_theme_support( 'terminator-clean-up-head' );
 
+	// Use the CDN version of jQuery.
+	add_theme_support( 'blackbird-enable-cdn-jquery' );
+
 	// Register navigation menus.
 	register_nav_menu( 'nav-primary', 'Main navigation' );
 	register_nav_menu( 'nav-secondary', 'Secondary navigation' );
@@ -82,5 +85,5 @@ function setup_admin() {
 function enqueue_scripts() {
 	wp_enqueue_style( '_s-styles', get_stylesheet_directory_uri() . '/assets/dist/styles/theme.css', [], '0.1.0' );
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/dist/scripts/modernizr.js', [], '0.1.0', true );
-	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/assets/src/scripts/functions.js', [ 'jquery-core' ], '0.1.0', true );
+	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/assets/src/scripts/functions.js', [ 'jquery' ], '0.1.0', true );
 }
