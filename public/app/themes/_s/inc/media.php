@@ -7,7 +7,6 @@
 
 namespace _s\Theme;
 
-add_filter( 'embed_oembed_html', __NAMESPACE__ . '\\wrap_oembeds', 10, 2 );
 add_filter( 'oembed_fetch_url',  __NAMESPACE__ . '\\vimeo_oembed_params', 10, 3 );
 add_filter( 'oembed_result',     __NAMESPACE__ . '\\modify_youtube_oembed_result', 10, 2 );
 
@@ -15,33 +14,6 @@ add_filter( 'oembed_result',     __NAMESPACE__ . '\\modify_youtube_oembed_result
  * Setup filter for oembed urls in custom fields.
  */
 add_filter( '_s_custom_field_oembed', array( $GLOBALS['wp_embed'], 'autoembed' ), 9 );
-
-/**
- * Wrap video oembeds in div.
- *
- * @param string $cache The cached HTML result, stored in post meta.
- * @param string $url   The attempted embed URL.
- * @return string Modified html response.
- */
-function wrap_oembeds( $cache, $url ) {
-	// Array of video services.
-	$video_providers = array(
-		'ted.com',
-		'youtube',
-		'youtu.be',
-		'vimeo',
-		'vine',
-		'videopress',
-	);
-
-	foreach ( $video_providers as $provider ) {
-		if ( false !== strpos( $url, $provider ) ) {
-			$cache = '<div class="inline-video">' . $cache . '</div>';
-		}
-	}
-
-	return $cache;
-}
 
 /**
  * Customise Vimeo oembed request parameters.

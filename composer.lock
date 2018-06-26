@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a0829f5eb3da166efdfd1f012ad0beb",
+    "content-hash": "258a5341406bf171c4bf465a446dd638",
     "packages": [
         {
             "name": "composer/installers",
@@ -250,11 +250,11 @@
         },
         {
             "name": "superbia/blackbird",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:superbiaweb/blackbird",
-                "reference": "cabd6cf74c47e15562977f51e4b76030d721da23"
+                "reference": "ee47f24c1bc63c05b4908147b844ce3ea0e44b57"
             },
             "require-dev": {
                 "stevegrunwell/wp-enforcer": "^0.5.0"
@@ -275,7 +275,7 @@
                 }
             ],
             "description": " Mach 3+ speed optimisations for WordPress.",
-            "time": "2018-06-25T03:17:09+00:00"
+            "time": "2018-06-26T06:03:50+00:00"
         },
         {
             "name": "superbia/terminator",

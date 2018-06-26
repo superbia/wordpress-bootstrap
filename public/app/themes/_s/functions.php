@@ -44,6 +44,7 @@ function setup() {
 
 	// Use the CDN version of jQuery.
 	add_theme_support( 'blackbird-enable-cdn-jquery' );
+	add_theme_support( 'blackbird-enable-lazy-loading' );
 
 	// Register navigation menus.
 	register_nav_menu( 'nav-primary', 'Main navigation' );
