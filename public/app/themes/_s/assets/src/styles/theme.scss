@@ -15,22 +15,16 @@
 @import "base/zindex";
 
 // Utilities
-@import "utilities/display";
-@import "utilities/flex";
 @import "utilities/ratio";
 
 // Layout
 @import "layout/grid";
 
-// UI Patterns
-@import "ui_patterns/accessibility";
-@import "ui_patterns/buttons";
-@import "ui_patterns/gravityForms";
-@import "ui_patterns/icons";
-
 // Components
-@import "components/header";
-@import "components/navMain";
-@import "components/siteTitle";
+@import "components/btn";
 @import "components/embed";
+@import "components/gravityforms";
 @import "components/lazyload";
+@import "components/navMain";
+@import "components/screenReaderText";
+@import "components/siteTitle";

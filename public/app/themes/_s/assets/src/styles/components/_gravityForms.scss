@@ -26,7 +26,7 @@ ul.gform_fields {
 	padding-bottom: 0.5em;
 
 	.gform--hidden-labels & {
-		@extend .screen-reader-text;
+		@extend .screenReaderText;
 	}
 }
 
