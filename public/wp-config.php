@@ -30,8 +30,8 @@ if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
 }
 
 /** Running wordpress install from the wp directory */
-define( 'WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp' );
-define( 'WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] );
+define( 'WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp' );
+define( 'WP_HOME',    'https://' . $_SERVER['SERVER_NAME'] );
 
 /** Move wp-content back into web root */
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/app' );
