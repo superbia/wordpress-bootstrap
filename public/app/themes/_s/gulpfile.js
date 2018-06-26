@@ -19,7 +19,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 const config = {
 	sass: {
 		outputStyle: 'compressed',
-		includePaths: [ 'node_modules/breakpoint-sass/stylesheets' ]
+		includePaths: [
+			'node_modules/breakpoint-sass/stylesheets',
+			'node_modules/normalize.css/',
+		]
 	},
 	imagemin: [
 		imagemin.jpegtran( { progressive: true } ),
