@@ -14,18 +14,17 @@
 
 namespace _s\Theme;
 
-get_header(); ?>
-
-<?php if ( have_posts() ) : ?>
+get_header();
+if ( have_posts() ) :
+	?>
 	<div class="posts">
 		<?php
 		while ( have_posts() ) :
 			the_post();
-?>
-			<h2><?php the_title(); ?></h2>
-			<?php the_content(); ?>
-		<?php endwhile; ?>
+			get_template_part( 'partials/parts/content' );
+		endwhile;
+		?>
 	</div>
-<?php endif; ?>
-
-<?php get_footer(); ?>
+	<?php
+endif;
+get_footer(); ?>
