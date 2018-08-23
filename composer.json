@@ -27,7 +27,7 @@
     "superbia/speedrunner": "0.2.2"
   },
   "require-dev": {
-    "wpackagist-plugin/query-monitor": "3.0.1",
+    "wpackagist-plugin/query-monitor": "3.1.0",
     "stevegrunwell/wp-enforcer": "^0.5.0"
   },
   "extra": {
