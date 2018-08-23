@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "258a5341406bf171c4bf465a446dd638",
+    "content-hash": "ef886e52a954dac928153643820d1a15",
     "packages": [
         {
             "name": "composer/installers",
@@ -249,12 +249,12 @@
             "time": "2018-01-29T14:49:29+00:00"
         },
         {
-            "name": "superbia/blackbird",
-            "version": "v0.2.0",
+            "name": "superbia/speedrunner",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:superbiaweb/blackbird",
-                "reference": "ee47f24c1bc63c05b4908147b844ce3ea0e44b57"
+                "url": "git@bitbucket.org:superbiaweb/speedrunner",
+                "reference": "f219f0818ba5083ac93aa1b80de4969d0f43fa5c"
             },
             "require-dev": {
                 "stevegrunwell/wp-enforcer": "^0.5.0"
@@ -262,7 +262,7 @@
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
-                    "Sup\\Blackbird\\": "src/"
+                    "Sup\\SpeedRunner\\": "src/"
                 }
             },
             "license": [
@@ -274,8 +274,8 @@
                     "email": "dylan@superbia.com.au"
                 }
             ],
-            "description": " Mach 3+ speed optimisations for WordPress.",
-            "time": "2018-06-26T06:03:50+00:00"
+            "description": "Mach 3+ speed optimisations for WordPress.",
+            "time": "2018-08-23T05:35:01+00:00"
         },
         {
             "name": "superbia/terminator",
@@ -350,16 +350,16 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266"
+                "reference": "628a481780561150481a9ec74709092b9759b3ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
-                "reference": "d86873af43b4aa9d1f39a3601cc0cfcf02b25266",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/628a481780561150481a9ec74709092b9759b3ec",
+                "reference": "628a481780561150481a9ec74709092b9759b3ec",
                 "shasum": ""
             },
             "require": {
@@ -397,7 +397,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-06-06T23:58:19+00:00"
+            "time": "2018-07-26T23:47:18+00:00"
         },
         {
             "name": "stevegrunwell/wp-enforcer",
@@ -442,24 +442,27 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "0.14.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "cf6b310caad735816caef7573295f8a534374706"
+                "reference": "539c6d74e6207daa22b7ea754d6f103e9abb2755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
-                "reference": "cf6b310caad735816caef7573295f8a534374706",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/539c6d74e6207daa22b7ea754d6f103e9abb2755",
+                "reference": "539c6d74e6207daa22b7ea754d6f103e9abb2755",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3",
                 "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
             },
+            "require-dev": {
+                "phpcompatibility/php-compatibility": "*"
+            },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -478,7 +481,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2018-02-16T01:57:48+00:00"
+            "time": "2018-07-25T18:10:35+00:00"
         },
         {
             "name": "wpackagist-plugin/query-monitor",
