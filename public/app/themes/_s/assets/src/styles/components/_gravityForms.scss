@@ -53,7 +53,7 @@ ul.gform_fields {
 	}
 
 	.gform--hidden-labels & label {
-		@extend .screen-reader-text;
+		@extend .screenReaderText;
 	}
 
 	@include respond-to( tablet-portrait ) {
