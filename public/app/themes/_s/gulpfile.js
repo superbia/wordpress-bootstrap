@@ -57,7 +57,6 @@ const config = {
 	},
 	postcss: [
 		require( 'autoprefixer' ),
-		require( 'clean-css' ),
 	],
 	rollup: {
 		bundle: {
@@ -121,6 +120,7 @@ function styles() {
 		.pipe( sourcemaps.init() )
 		.pipe( sass( config.sass ).on( 'error', sass.logError ) )
 		.pipe( postcss( config.postcss ) )
+		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( paths.styles.dest ) )
 		.pipe( server.reload( { stream: true } ) );
 }
