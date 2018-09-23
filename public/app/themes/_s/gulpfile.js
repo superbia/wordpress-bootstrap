@@ -8,6 +8,8 @@ const newer             = require( 'gulp-newer' );
 const notify            = require( 'gulp-notify' );
 const os                = require( 'os' );
 const postcss           = require( 'gulp-postcss' );
+const rev               = require( 'gulp-rev' );
+const revCssUrl         = require( 'gulp-rev-css-url' );
 const rollup            = require( 'rollup' );
 const rollupBabel       = require( 'rollup-plugin-babel' );
 const rollupCommonjs    = require( 'rollup-plugin-commonjs' );
@@ -22,29 +24,41 @@ const isProduction      = process.env.NODE_ENV === 'production';
 
 const basePaths = {
 	src: './assets/src/',
-	dist: './assets/dist/',
+	dest: './assets/dist/',
 }
 
 const paths = {
 	styles: {
 		src: `${basePaths.src}styles/**/*.scss`,
-		dest: `${basePaths.dist}styles/`,
+		dest: `${basePaths.dest}styles/`,
 	},
 	scripts: {
 		src: `${basePaths.src}scripts/**/*.js`,
+		dest: `${basePaths.src}scripts/`,
 		entry: `${basePaths.src}scripts/theme.js`,
-		exit: `${basePaths.dist}scripts/theme.bundle.js`,
+		exit: `${basePaths.dest}scripts/theme.bundle.js`,
 	},
 	images: {
-		src:  `${basePaths.src}images/**/*.{jpg,png,svg}`,
-		dest: `${basePaths.dist}images`,
+		src:  `${basePaths.src}images/**/*.{jpg,gif,png,svg}`,
+		dest: `${basePaths.dest}images`,
 	},
 	svgsprite: {
 		src: `${basePaths.src}icons/**/*.svg`,
-		dest: `${basePaths.dist}images`,
+		dest: `${basePaths.dest}images`,
+	},
+	fonts: {
+		src: `${basePaths.src}fonts/*.{woff,woff2}`,
+		dest: `${basePaths.dest}fonts`,
 	},
 	certs: os.homedir() + '/Sites/config/certs/localhost/',
 	templates: './**/*.php',
+	// String interpolation or concatenation doesn't work here.
+	rev: [
+		'./assets/dist/styles/*.css',
+		'./assets/dist/scripts/*.js',
+		'./assets/dist/images/*.{png,gif,jpg,svg}',
+		'./assets/dist/fonts/*.{woff,woff2}',
+	]
 };
 
 const config = {
@@ -112,7 +126,7 @@ if ( isProduction ) {
 }
 
 const clean = () => del(
-	[ basePaths.dist ]
+	[ basePaths.dest ]
 );
 
 function styles() {
@@ -167,9 +181,26 @@ function svgSprite() {
 	  .pipe( gulp.dest( paths.svgsprite.dest ) );
 }
 
+function fonts() {
+	return gulp.src( paths.fonts.src )
+		.pipe( gulp.dest( paths.fonts.dest ) );
+}
+
+function revisionAssets() {
+	return gulp.src( paths.rev, {
+			allowEmpty: true,
+			base: basePaths.dest
+		} )
+		.pipe( rev() )
+		.pipe( revCssUrl() )
+		.pipe( gulp.dest( basePaths.dest ) )
+		.pipe( rev.manifest() )
+		.pipe( gulp.dest( basePaths.dest ) )
+}
+
 const buildStyles  = gulp.series( lintSass, styles );
 const buildScripts = gulp.series( lintScripts, scripts );
-const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite ) );
+const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite, fonts ), revisionAssets );
 
 function reload( done ) {
 	server.reload();
