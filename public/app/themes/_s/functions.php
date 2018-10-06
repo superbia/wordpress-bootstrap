@@ -45,6 +45,7 @@ function setup() {
 	// Use the CDN version of jQuery.
 	add_theme_support( 'speedrunner-enable-cdn-jquery' );
 	add_theme_support( 'speedrunner-enable-lazy-loading' );
+	add_theme_support( 'speedrunner-enable-asset-revisioning' );
 
 	// Register navigation menus.
 	register_nav_menu( 'nav-primary', 'Main navigation' );
@@ -83,6 +84,6 @@ function setup_admin() {
  * Enqueue theme scripts and styles.
  */
 function enqueue_scripts() {
-	wp_enqueue_style( '_s-styles', get_stylesheet_directory_uri() . '/assets/dist/styles/theme.css', [], '0.1.0' );
-	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/assets/dist/scripts/theme.bundle.js', [ 'jquery' ], '0.1.0', true );
+	wp_enqueue_style( '_s-styles', get_theme_file_uri( 'assets/dist/styles/theme.css' ), [], '0.1.0' );
+	wp_enqueue_script( '_s-script', get_theme_file_uri( 'assets/dist/scripts/theme.bundle.js' ), [ 'jquery' ], '0.1.0', true );
 }
