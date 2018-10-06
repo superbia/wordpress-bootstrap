@@ -1,5 +1,6 @@
 const autoprefixer      = require( 'autoprefixer' );
 const browserSync       = require( 'browser-sync' );
+const cssnano           = require( 'cssnano' );
 const del               = require( 'del' );
 const ESLint            = require( 'gulp-eslint' );
 const gulp              = require( 'gulp' );
@@ -8,6 +9,7 @@ const newer             = require( 'gulp-newer' );
 const notify            = require( 'gulp-notify' );
 const os                = require( 'os' );
 const postcss           = require( 'gulp-postcss' );
+const postcssImport     = require( 'postcss-import' );
 const rev               = require( 'gulp-rev' );
 const revCssUrl         = require( 'gulp-rev-css-url' );
 const rollup            = require( 'rollup' );
@@ -70,7 +72,9 @@ const config = {
 		]
 	},
 	postcss: [
-		require( 'autoprefixer' ),
+		postcssImport,
+		autoprefixer,
+		cssnano,
 	],
 	rollup: {
 		bundle: {
