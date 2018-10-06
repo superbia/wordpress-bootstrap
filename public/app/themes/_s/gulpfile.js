@@ -74,7 +74,6 @@ const config = {
 	postcss: [
 		postcssImport,
 		autoprefixer,
-		cssnano,
 	],
 	rollup: {
 		bundle: {
@@ -126,6 +125,7 @@ const config = {
 
 // Update config for production.
 if ( isProduction ) {
+	config.postcss.push( cssnano );
 	config.rollup.bundle.plugins.push( rollupUglify.uglify() );
 }
 
