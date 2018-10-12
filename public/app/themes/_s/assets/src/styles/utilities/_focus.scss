@@ -1,0 +1,9 @@
+/**
+ * Focus-visible polyfill.
+ *
+ * @link https://github.com/WICG/focus-visible
+ * Hide outlines when interacting with the mouse.
+ */
+.js-focus-visible :focus:not( .focus-visible ) {
+	outline: 0;
+}
