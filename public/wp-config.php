@@ -26,10 +26,10 @@
  * Include composer autoloader if it's available
  */
 if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
-	include( __DIR__ . '/../vendor/autoload.php' );
+	include __DIR__ . '/../vendor/autoload.php';
 }
 
-/** Running wordpress install from the wp directory */
+/** Running WordPress install from the wp directory */
 define( 'WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wp' );
 define( 'WP_HOME',    'https://' . $_SERVER['SERVER_NAME'] );
 
@@ -57,7 +57,7 @@ define( 'WP_POST_REVISIONS', 3 );
  * Depending on the type other stuff can be configured
  * Note: Define them all, don't skip one if other is already defined
  */
-define( 'DB_CREDENTIALS_PATH', dirname( __DIR__ ) ); // cache it for multiple use
+define( 'DB_CREDENTIALS_PATH', dirname( __DIR__ ) ); // cache it for multiple use.
 define( 'WP_DEV_SERVER', file_exists( DB_CREDENTIALS_PATH . '/config.dev.php' ) );
 define( 'WP_STAGING_SERVER', file_exists( DB_CREDENTIALS_PATH . '/config.staging.php' ) );
 define( 'WP_PRODUCTION_SERVER', file_exists( DB_CREDENTIALS_PATH . '/config.production.php' ) );
@@ -85,15 +85,15 @@ if ( WP_DEV_SERVER ) {
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-if (  WP_DEV_SERVER ) {
+if ( WP_DEV_SERVER ) {
 	define( 'WP_DEBUG', true );
-	define( 'WP_DEBUG_LOG', true ); // Stored in app/debug.log
+	define( 'WP_DEBUG_LOG', true ); // Stored in app/debug.log.
 	define( 'WP_DEBUG_DISPLAY', true );
 	define( 'SCRIPT_DEBUG', true );
 	define( 'SAVEQUERIES', true );
-} else if ( WP_STAGING_SERVER ) {
+} elseif ( WP_STAGING_SERVER ) {
 	define( 'WP_DEBUG', true );
-	define( 'WP_DEBUG_LOG', true ); // Stored in app/debug.log
+	define( 'WP_DEBUG_LOG', true ); // Stored in app/debug.log.
 	define( 'WP_DEBUG_DISPLAY', false );
 } else {
 	define( 'WP_DEBUG', false );
@@ -102,8 +102,9 @@ if (  WP_DEV_SERVER ) {
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';

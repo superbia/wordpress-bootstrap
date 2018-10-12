@@ -29,7 +29,7 @@ function google_analytics_tracking_code() {
 
 	if ( WP_PRODUCTION_SERVER && false === current_user_can( 'publish_pages' ) ) : ?>
 		<script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','<?php echo esc_attr( GA_TRACKING_ID ); ?>');ga('send','pageview')</script>
-	<?php
+		<?php
 	endif;
 }
 

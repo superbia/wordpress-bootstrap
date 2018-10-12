@@ -34,6 +34,10 @@
 		<exclude-pattern>*</exclude-pattern>
 	</rule>
 
+	<rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
+		<exclude-pattern>*</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress-Extra" />
 	<rule ref="WordPress-Docs" />
 
