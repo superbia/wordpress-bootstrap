@@ -38,6 +38,10 @@
 		<exclude-pattern>*</exclude-pattern>
 	</rule>
 
+	<rule ref="WordPress.WP.EnqueuedResourceParameters.MissingVersion">
+		<exclude-pattern>*</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress-Extra" />
 	<rule ref="WordPress-Docs" />
 

@@ -84,6 +84,6 @@ function setup_admin() {
  * Enqueue theme scripts and styles.
  */
 function enqueue_scripts() {
-	wp_enqueue_style( '_s-styles', get_theme_file_uri( 'assets/dist/styles/theme.css' ), [], '0.1.0' );
-	wp_enqueue_script( '_s-script', get_theme_file_uri( 'assets/dist/scripts/theme.bundle.js' ), [ 'jquery' ], '0.1.0', true );
+	wp_enqueue_style( '_s-styles', get_theme_file_uri( 'assets/dist/styles/theme.css' ), [], null );
+	wp_enqueue_script( '_s-script', get_theme_file_uri( 'assets/dist/scripts/theme.bundle.js' ), [ 'jquery' ], null, true );
 }
