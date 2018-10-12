@@ -14,6 +14,7 @@ public/wp
 
 # Assets
 public/app/themes/*/assets/dist/
+public/sw.js
 
 # Vendor (e.g. Composer, NPM, etc)
 vendor/

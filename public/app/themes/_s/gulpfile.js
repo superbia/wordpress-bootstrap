@@ -4,6 +4,7 @@ const cssnano           = require( 'cssnano' );
 const del               = require( 'del' );
 const ESLint            = require( 'gulp-eslint' );
 const gulp              = require( 'gulp' );
+const gulpSvgSprite     = require( 'gulp-svg-sprite' );
 const imagemin          = require( 'gulp-imagemin' );
 const newer             = require( 'gulp-newer' );
 const notify            = require( 'gulp-notify' );
@@ -20,7 +21,7 @@ const rollupUglify      = require( 'rollup-plugin-uglify' );
 const sass              = require( 'gulp-sass' );
 const sassLint          = require( 'gulp-sass-lint' );
 const sourcemaps        = require( 'gulp-sourcemaps' );
-const gulpSvgSprite     = require( 'gulp-svg-sprite' );
+const workboxBuild      = require( 'workbox-build' );
 const server            = browserSync.create();
 const isProduction      = process.env.NODE_ENV === 'production';
 
@@ -51,6 +52,16 @@ const paths = {
 	fonts: {
 		src: `${basePaths.src}fonts/*.{woff,woff2}`,
 		dest: `${basePaths.dest}fonts`,
+	},
+	workbox: {
+		src: [
+			'**\/*.{json,js,css,woff2,png,svg}',
+		],
+		ignore: [
+			'styles/admin.css',
+			'styles/editor.css',
+		],
+		dest: './../../../sw.js',
 	},
 	certs: os.homedir() + '/Sites/config/certs/localhost/',
 	templates: './**/*.php',
@@ -190,6 +201,15 @@ function fonts() {
 		.pipe( gulp.dest( paths.fonts.dest ) );
 }
 
+function serviceWorker() {
+	return workboxBuild.generateSW( {
+		globDirectory: basePaths.dest,
+		globPatterns: paths.workbox.src,
+		globIgnores: paths.workbox.ignore,
+		swDest: paths.workbox.dest,
+	} );
+}
+
 function revisionAssets() {
 	return gulp.src( paths.rev, {
 			allowEmpty: true,
@@ -204,7 +224,7 @@ function revisionAssets() {
 
 const buildStyles  = gulp.series( lintSass, styles );
 const buildScripts = gulp.series( lintScripts, scripts );
-const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite, fonts ), revisionAssets );
+const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite, fonts ), serviceWorker, revisionAssets );
 
 function reload( done ) {
 	server.reload();
