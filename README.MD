@@ -21,7 +21,7 @@ Superbia's WordPress starter project.
 Clone this repo and then run the following command to create your new project:
 
 ```bash
-$ ./bin/boostrap
+$ ./bin/bootstrap
 ```
 
 You will be prompted for the following information:
