@@ -18,7 +18,7 @@ public/sw.js
 
 # Vendor (e.g. Composer, NPM, etc)
 vendor/
-public/app/themes/*/node_modules/
+node_modules/
 
 # Logs
 public/app/debug.log
