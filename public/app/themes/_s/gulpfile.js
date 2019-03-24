@@ -11,6 +11,7 @@ const notify            = require( 'gulp-notify' );
 const os                = require( 'os' );
 const postcss           = require( 'gulp-postcss' );
 const postcssImport     = require( 'postcss-import' );
+const responsive        = require( 'gulp-responsive' );
 const rev               = require( 'gulp-rev' );
 const revCssUrl         = require( 'gulp-rev-css-url' );
 const rollup            = require( 'rollup' );
@@ -47,6 +48,10 @@ const paths = {
 	},
 	svgsprite: {
 		src: `${basePaths.src}icons/**/*.svg`,
+		dest: `${basePaths.dest}images`,
+	},
+	appicon: {
+		src: `${basePaths.src}pwa/app-icon.png`,
 		dest: `${basePaths.dest}images`,
 	},
 	fonts: {
@@ -123,6 +128,22 @@ const config = {
 			},
 		},
 	},
+	appicon: {
+		'app-icon.png': [
+			{
+				width: 512,
+				rename: 'app-icon-512.png',
+			},
+			{
+				width: 192,
+				rename: 'app-icon-192.png',
+			},
+			{
+				width: 180,
+				rename: 'apple-touch-icon.png',
+			},
+		],
+	},
 	browsersync: {
 		proxy: 'https://dev.wp-bootstrap',
 		open: false,
@@ -196,6 +217,18 @@ function svgSprite() {
 	  .pipe( gulp.dest( paths.svgsprite.dest ) );
 }
 
+function appIcons() {
+	return gulp.src(
+		paths.appicon.src, {
+			allowEmpty: true,
+		}
+	)
+	.pipe( newer( paths.images.dest ) )
+	.pipe( responsive( config.appicon ) )
+	.pipe( imagemin( config.imagemin, { verbose: true } ) )
+	.pipe( gulp.dest( paths.appicon.dest ) );
+}
+
 function fonts() {
 	return gulp.src( paths.fonts.src )
 		.pipe( gulp.dest( paths.fonts.dest ) );
@@ -224,7 +257,7 @@ function revisionAssets() {
 
 const buildStyles  = gulp.series( lintSass, styles );
 const buildScripts = gulp.series( lintScripts, scripts );
-const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite, fonts ), serviceWorker, revisionAssets );
+const build        = gulp.series( clean, gulp.parallel( buildStyles, buildScripts, images, svgSprite, appIcons, fonts ), serviceWorker, revisionAssets );
 
 function reload( done ) {
 	server.reload();
@@ -244,6 +277,7 @@ gulp.task( 'styles', buildStyles );
 gulp.task( 'scripts', buildScripts );
 gulp.task( 'images', images );
 gulp.task( 'svgsprite', svgSprite );
+gulp.task( 'appIcons', appIcons );
 gulp.task( 'watch', serve );
 gulp.task( 'build', build );
 gulp.task( 'default', build );
