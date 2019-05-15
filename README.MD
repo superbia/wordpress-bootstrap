@@ -112,3 +112,12 @@ List coverage
 ```bash
 $ yarn run browserslist --coverage
 ```
+
+## Credits
+
+Thanks to the following projects/people that have influenced our WordPress Bootstrap
+
+* [Roots Bedrock](https://github.com/roots/bedrock) for folder structure and composer setup
+* Rarst for his [Guide to Composer in WordPress](https://composer.rarst.net/)
+* [Underscores](https://github.com/Automattic/_s) for their theme renaming strategy
+* Focus Lab's [EE Master Config](https://github.com/focuslabllc/ee-master-config) and Ashfame's [awesome-wp-config-file.php](https://gist.github.com/ashfame/1923821)
