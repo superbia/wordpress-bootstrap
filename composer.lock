@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f5009ec32331b59ab3b6fb2ce7a187c",
+    "content-hash": "3a436865864ea7a04fdcf14f48d21ba2",
     "packages": [
         {
             "name": "composer/installers",
@@ -253,8 +253,14 @@
             "version": "v0.7.0",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:superbiaweb/speedrunner",
+                "url": "https://github.com/superbia/SpeedRunner.git",
                 "reference": "682c13ce2f17690ada1a3ed55d8a421cba784d20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/superbia/SpeedRunner/zipball/682c13ce2f17690ada1a3ed55d8a421cba784d20",
+                "reference": "682c13ce2f17690ada1a3ed55d8a421cba784d20",
+                "shasum": ""
             },
             "require-dev": {
                 "stevegrunwell/wp-enforcer": "^0.5.0"
@@ -275,6 +281,10 @@
                 }
             ],
             "description": "Mach 3+ speed optimisations for WordPress.",
+            "support": {
+                "source": "https://github.com/superbia/SpeedRunner/tree/v0.7.0",
+                "issues": "https://github.com/superbia/SpeedRunner/issues"
+            },
             "time": "2019-02-05T03:54:25+00:00"
         },
         {
@@ -282,8 +292,14 @@
             "version": "v0.2.0",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:superbiaweb/terminator",
+                "url": "https://github.com/superbia/Terminator.git",
                 "reference": "2436ea1327a44be0d137a2c33939fc83e093656a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/superbia/Terminator/zipball/2436ea1327a44be0d137a2c33939fc83e093656a",
+                "reference": "2436ea1327a44be0d137a2c33939fc83e093656a",
+                "shasum": ""
             },
             "require-dev": {
                 "stevegrunwell/wp-enforcer": "^0.5.0"
@@ -304,7 +320,11 @@
                 }
             ],
             "description": "Disable core WordPress functionality via theme support.",
-            "time": "2019-02-13T09:38:17+00:00"
+            "support": {
+                "source": "https://github.com/superbia/Terminator/tree/v0.2.0",
+                "issues": "https://github.com/superbia/Terminator/issues"
+            },
+            "time": "2019-02-13T09:39:17+00:00"
         },
         {
             "name": "wpackagist-plugin/classic-editor",
@@ -370,16 +390,16 @@
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.4.1",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa"
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5b4333b4010625d29580eb4a41f1e53251be6baa",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
+                "reference": "b8a7362af1cc1aadb5bd36c3defc4dda2cf5f0a8",
                 "shasum": ""
             },
             "require": {
@@ -417,7 +437,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-03-19T03:22:27+00:00"
+            "time": "2019-04-10T23:49:02+00:00"
         },
         {
             "name": "stevegrunwell/wp-enforcer",
@@ -462,16 +482,16 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "c9eaadaafefce36b3cb7e06eb15305b8c4cae9ce"
+                "reference": "8c7a2e7682de9ef5955251874b639deda51ef470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/c9eaadaafefce36b3cb7e06eb15305b8c4cae9ce",
-                "reference": "c9eaadaafefce36b3cb7e06eb15305b8c4cae9ce",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/8c7a2e7682de9ef5955251874b639deda51ef470",
+                "reference": "8c7a2e7682de9ef5955251874b639deda51ef470",
                 "shasum": ""
             },
             "require": {
@@ -484,7 +504,7 @@
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -503,7 +523,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2019-01-16T10:13:16+00:00"
+            "time": "2019-04-08T10:53:57+00:00"
         },
         {
             "name": "wpackagist-plugin/query-monitor",

@@ -6,11 +6,11 @@
     },
     {
       "type": "vcs",
-      "url": "git@bitbucket.org:superbiaweb/terminator"
+      "url": "https://github.com/superbia/Terminator.git"
     },
     {
       "type": "vcs",
-      "url": "git@bitbucket.org:superbiaweb/speedrunner"
+      "url": "https://github.com/superbia/SpeedRunner.git"
     }
   ],
   "require": {
