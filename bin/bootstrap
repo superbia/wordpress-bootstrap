@@ -76,7 +76,7 @@ fi
 
 # Update the gulp proxy
 if [[ -f "$THEME_DIR/$textDomain/gulpfile.js" ]]; then
-  sed -i '' "s/wp-bootstrap.dev/dev.${domainName}/g" "$THEME_DIR/$textDomain/gulpfile.js";
+  sed -i '' "s/dev.wp-bootstrap/dev.${domainName}/g" "$THEME_DIR/$textDomain/gulpfile.js";
   echo "- Updated Browsersync proxy url"
 fi
 
