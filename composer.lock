@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "638e082925b39e111aca5d9d1682c31c",
+    "content-hash": "bb7766f619caa96e145f0bf420c8d3eb",
     "packages": [
         {
             "name": "composer/installers",
@@ -122,22 +122,22 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.2.1",
+            "version": "5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "32750c64c9d1878a7c958094554644de63030323"
+                "reference": "597236f0e4126ef92611b904725fd4e60afdc1ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/32750c64c9d1878a7c958094554644de63030323",
-                "reference": "32750c64c9d1878a7c958094554644de63030323",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/597236f0e4126ef92611b904725fd4e60afdc1ac",
+                "reference": "597236f0e4126ef92611b904725fd4e60afdc1ac",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.2.1",
+                "johnpbloch/wordpress-core": "5.2.2",
                 "johnpbloch/wordpress-core-installer": "^1.0",
-                "php": ">=5.6.20"
+                "php": ">=5.3.2"
             },
             "type": "package",
             "notification-url": "https://packagist.org/downloads/",
@@ -157,27 +157,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-05-22T17:56:53+00:00"
+            "time": "2019-06-18T17:58:03+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.2.1",
+            "version": "5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "7555561027211f295e1d6a77d06ab47f605608cd"
+                "reference": "bbded8adf0ddd8cafdbd6e6605e0ee82d5c1dc8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/7555561027211f295e1d6a77d06ab47f605608cd",
-                "reference": "7555561027211f295e1d6a77d06ab47f605608cd",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/bbded8adf0ddd8cafdbd6e6605e0ee82d5c1dc8a",
+                "reference": "bbded8adf0ddd8cafdbd6e6605e0ee82d5c1dc8a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "provide": {
-                "wordpress/core-implementation": "5.2.1"
+                "wordpress/core-implementation": "5.2.2"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -197,7 +197,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-05-21T18:27:33+00:00"
+            "time": "2019-06-18T17:57:57+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -250,16 +250,16 @@
         },
         {
             "name": "superbia/speedrunner",
-            "version": "v0.7.0",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/superbia/SpeedRunner.git",
-                "reference": "682c13ce2f17690ada1a3ed55d8a421cba784d20"
+                "reference": "20e75df422ecf02bceee8f54dd0ac8af7d081e3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/superbia/SpeedRunner/zipball/682c13ce2f17690ada1a3ed55d8a421cba784d20",
-                "reference": "682c13ce2f17690ada1a3ed55d8a421cba784d20",
+                "url": "https://api.github.com/repos/superbia/SpeedRunner/zipball/20e75df422ecf02bceee8f54dd0ac8af7d081e3d",
+                "reference": "20e75df422ecf02bceee8f54dd0ac8af7d081e3d",
                 "shasum": ""
             },
             "require-dev": {
@@ -282,10 +282,10 @@
             ],
             "description": "Mach 3+ speed optimisations for WordPress.",
             "support": {
-                "source": "https://github.com/superbia/SpeedRunner/tree/v0.7.0",
+                "source": "https://github.com/superbia/SpeedRunner/tree/v0.9.0",
                 "issues": "https://github.com/superbia/SpeedRunner/issues"
             },
-            "time": "2019-02-05T03:54:25+00:00"
+            "time": "2019-08-01T05:17:22+00:00"
         },
         {
             "name": "superbia/terminator",
@@ -368,15 +368,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "11.2.1",
+            "version": "11.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/11.2.1"
+                "reference": "tags/11.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.2.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.11.9.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -485,12 +485,12 @@
             "version": "2.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
+                "url": "https://github.com/WordPress/WordPress-Coding-Standards.git",
                 "reference": "bd9c33152115e6741e3510ff7189605b35167908"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/bd9c33152115e6741e3510ff7189605b35167908",
+                "url": "https://api.github.com/repos/WordPress/WordPress-Coding-Standards/zipball/bd9c33152115e6741e3510ff7189605b35167908",
                 "reference": "bd9c33152115e6741e3510ff7189605b35167908",
                 "shasum": ""
             },
@@ -527,15 +527,15 @@
         },
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.3.6",
+            "version": "3.3.7",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.3.6"
+                "reference": "tags/3.3.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.3.6.zip",
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.3.7.zip",
                 "reference": null,
                 "shasum": null
             },
