@@ -39,6 +39,8 @@ packageName=${packageName// /}
 if [[ -d "$BOOTSTRAP_THEME" ]]; then
   # Text domain: Search for: '_s' and replace with: 'megatherium-is-awesome'
   find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/'_s'/'$textDomain'/g" {} \;
+  find "$BOOTSTRAP_THEME" -name '*.json' -exec sed -i '' "s/'_s'/$textDomain/g" {} \;
+	find "$BOOTSTRAP_THEME" -name '*.json' -exec sed -i '' "s/'_s_long'/$themeName/g" {} \;
   echo "- Updated the text domain: $GREEN$textDomain$RESET_TEXT"
   # Function names: Search for: _s_ and replace with: megatherium_is_awesome_
   find "$BOOTSTRAP_THEME" -name '*.php' -exec sed -i '' "s/_s_/$functionPrefix/g" {} \;
