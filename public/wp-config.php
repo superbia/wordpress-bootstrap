@@ -89,6 +89,7 @@ if ( WP_DEV_SERVER ) {
 	define( 'WP_DEBUG', true );
 	define( 'WP_DEBUG_LOG', true ); // Stored in app/debug.log.
 	define( 'WP_DEBUG_DISPLAY', true );
+	define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true );
 	define( 'SCRIPT_DEBUG', true );
 	define( 'SAVEQUERIES', true );
 } elseif ( WP_STAGING_SERVER ) {
